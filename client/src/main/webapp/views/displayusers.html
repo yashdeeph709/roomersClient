@@ -3,6 +3,10 @@
 	Display of All users
 	</div>
 	<div class="panel-body">
+	<div class="form-group">
+	<label>Enter Some Text to Search for a user</label>
+	<input class="form-control input-md" type="text" placeholder="Enter Some Text to Search for a user" ng-model="text">
+	</div>
 	<table class="table table-striped">
 		<tr>
 			<td>ID</td>
@@ -10,12 +14,12 @@
 			<td>Email</td>
 			<td>Actions</td>
 		</tr>
-		<tr ng-repeat="user in users">
+		<tr ng-repeat="user in users|filter:text">
 			<td>{{$index+1}}</td>
 			<td>{{user.name}}</td>
 			<td>{{user.email}}</td>
-			<td><button class="btn btn-info" ng-click="delete($index)"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-			<button class="btn btn-info" ng-click="delete($index)"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button></td>
+			<td><button class="btn btn-info" ng-click="deleteUser(user.id)" accesskey="d"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			<button class="btn btn-info" ng-click="makeAdmin(user.id)" accesskey="a"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button></td>
 		</tr>
 	</table>
 	</div>
