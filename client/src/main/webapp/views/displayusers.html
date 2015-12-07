@@ -14,7 +14,8 @@
 			<td>{{$index+1}}</td>
 			<td>{{user.name}}</td>
 			<td>{{user.email}}</td>
-			<td><button class="btn btn-info" ng-click="delete($index)">Delete</button></td>
+			<td><button class="btn btn-info" ng-click="delete($index)"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			<button class="btn btn-info" ng-click="delete($index)"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button></td>
 		</tr>
 	</table>
 	</div>
