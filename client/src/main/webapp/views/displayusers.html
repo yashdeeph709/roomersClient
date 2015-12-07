@@ -1,0 +1,21 @@
+<div class="panel panel-info" ng-controller="displayUserCtrl">
+	<div class="panel-heading">
+	Display of All users
+	</div>
+	<div class="panel-body">
+	<table class="table table-striped">
+		<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Email</td>
+			<td>Actions</td>
+		</tr>
+		<tr ng-repeat="user in users">
+			<td>{{$index+1}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.email}}</td>
+			<td><button class="btn btn-info" ng-click="delete($index)">Delete</button></td>
+		</tr>
+	</table>
+	</div>
+</div>

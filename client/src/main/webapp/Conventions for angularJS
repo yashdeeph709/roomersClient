@@ -1,0 +1,26 @@
+Conventions for angularJS
+--------------------------------------
+1) please use AngularRoomersSeed start client side code.
+2) most of the libraries we need for project and already available to use in seed so that at the end of project we land with same directory structure and consistent managed code.
+	i) UI-router
+	ii) UI-bootstrap
+	iii) Angularjs
+3) please use <ControllerName>Ctrl notation for naming your controller
+4) use html5 validation in combination with angular on client side validation
+5) app.controller('name', ['$dependency', function($dependency){}])
+define controllers in this way so that we can minimize our code in last.
+6) Keep resources in res directory.
+7) ngInclude as much as possible so that we can the markup is readable.
+8) go for project level constants for things used multiple times
+9) keep all the code a single component like controller and service.
+10) if you find something share with us also and review this also.
+11) install nodejs(with default options) from its website and then on cmd npm install -g http-server
+12) as per user story add a folder in views and add your template there for that
+13) Add more and give a pull request to us we will update
+
+
+Instructions for using this seed -----------
+1) just add a route.
+2) create a controller file in js/controllers.
+3) add appropriate trigger for it.
+4) and you are good to go
