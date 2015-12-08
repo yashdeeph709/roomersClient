@@ -145,18 +145,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
-    <button id="singlebutton"  ng-click="createRoom()" ng-disabled="RegistrationForm.roomName.$dirty && RegistrationForm.roomName.$invalid ||
-  RegistrationForm.roomCity.$dirty && RegistrationForm.roomCity.$invalid" ||
-  RegistrationForm.roomLocation.$dirty && RegistrationForm.roomLocation.$invalid" ||
-  RegistrationForm.roomBlock.$dirty && RegistrationForm.roomBlock.$invalid" ||
-  RegistrationForm.roomAddress.$dirty && RegistrationForm.roomAddress.$invalid" ||
-  RegistrationForm.roomCapacity.$dirty && RegistrationForm.roomCapacity.$invalid" ||
-  RegistrationForm.roomTables.$dirty && RegistrationForm.roomTables.$invalid" ||
-  RegistrationForm.roomMachines.$dirty && RegistrationForm.roomMachines.$invalid" ||
-  RegistrationForm.roomBoard.$dirty && RegistrationForm.roomBoard.$invalid" ||
-  RegistrationForm.roomChart.$dirty && RegistrationForm.roomChart.$invalid" ||
-  RegistrationForm.roomScreen.$dirty && RegistrationForm.roomScreen.$invalid" ||
-  RegistrationForm.roomProjector.$dirty && RegistrationForm.roomProjector.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
+    <button id="singlebutton"  ng-click="createRoom()" ng-disabled="CreateRoom.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
   </div>
   <div class="col-md-4">
     <button id="singlebutton"  type="reset" value="Reset" class="btn btn-primary">Reset</button>
