@@ -1,8 +1,9 @@
 app.controller('CreateRoomController', function($scope,$http) {
   $scope.createRoom= function() {
         
-        //console.log($scope.NewRoom);
-
+	  if($scope.roomInternet==null)
+		  $scope.roomInternet = "false";
+	  
         var request = {
  					method: 'POST',
  					url: 'http://localhost:8080/createRoom',
@@ -19,15 +20,14 @@ app.controller('CreateRoomController', function($scope,$http) {
  						roomBoard: $scope.roomBoard,
  						roomChart: $scope.roomChart,
  						roomProjector: $scope.roomProjector,
+ 						
  						roomInternet: $scope.roomInternet
  					}
 				}
-
-				console.log("BC");
-		/*$http.post(request.url,request.data).success(function(data)
+        
+		$http.post(request.url,request.data).success(function(data)
           {
-                        console.log("Success : " + data);
-                });*/
-		/*$http(req).then(function(){...}, function(){...});*/
+                        console.log("Success : " + data.status +" "+ data.message);
+                });
       };
 });
