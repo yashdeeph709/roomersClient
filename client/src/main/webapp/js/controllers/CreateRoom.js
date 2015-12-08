@@ -1,4 +1,4 @@
-app.controller('CreateRoomController', function($scope,$http) {
+app.controller('CreateRoomController', function($scope,$http,$window) {
   $scope.createRoom= function() {
         
 	  if($scope.roomInternet==null)
@@ -28,6 +28,9 @@ app.controller('CreateRoomController', function($scope,$http) {
 		$http.post(request.url,request.data).success(function(data)
           {
                         console.log("Success : " + data.status +" "+ data.message);
-                });
+                        $window.alert(data.message);
+        
+          });
+        
       };
 });
