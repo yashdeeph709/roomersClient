@@ -57,35 +57,37 @@
   <label class="col-md-4 control-label" for="password">Enter Password</label>
   <div class="col-md-4">
     <input id="password" name="password" ng-model="password" type="password" ng-minlength="6" class="form-control input-md" 
-    	required pattern=".{2,}" >
+    	required pattern=".{2,}">
   <span style="color:red" ng-show="RegistrationForm.password.$dirty && RegistrationForm.password.$invalid">
-   <span  ng-show="RegistrationForm.password.$error.minlength">Password should have atleast 6 characters</span>
-    <span ng-show="RegistrationForm.password.$error.required">Password is required.</span>
+
+		<span ng-show="RegistrationForm.password.$error.uppercaseValidator">Password should contain at least 1 uppercase</span><br/>
+		 <span ng-show="RegistrationForm.password.$error.numberValidator">Password should contain at least 1 number</span><br/>
+   		<span  ng-show="RegistrationForm.password.$error.minlength">Password should have atleast 6 characters</span><br/>
+    	<span ng-show="RegistrationForm.password.$error.required">Password is required.</span>
     </span>
     
   </div>
 </div>
 
-<!-- Password input-->
+<!-- confirm Password-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="confirmPassword">Confirm Password</label>
+  <label class="col-md-4 control-label" for="confirmPassword" >Confirm Password</label>
   <div class="col-md-4">
     <input id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" type="password"  class="form-control input-md" 
-    wj-validation-error="chkPwd != thePwd ? 'Passwords don\'t match' : ''" required>
+     required>
   <span style="color:red" ng-show="RegistrationForm.confirmPassword.$dirty && RegistrationForm.confirmPassword.$invalid">
-    <span ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span>
+    <span ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span><br/>
     </span>
     
   </div>
-</div>
+
 
   <!-- Button (Double) -->
-<div class="form-group col-md-offset-4">
+<div class="form-group">
   <label class="col-md-4 control-label" for="btn_register"></label>
   <div class="col-md-8">
 
-    <button id="btn_register" name="btn_register" class="btn btn-primary" ng-click="register()" ng-disabled="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid ||
-  RegistrationForm.email_Id.$dirty && RegistrationForm.email_Id.$invalid">Register</button>
+    <button id="btn_register" name="btn_register" class="btn btn-primary" ng-click="register()" ng-disabled="RegistrationForm.$invalid">Register</button>
     <button id="btn_cancel" name="btn_cancel" class="btn btn-primary" ng-click="cancel()">Cancel</button>
   </div>
 </div>
