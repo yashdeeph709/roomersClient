@@ -40,8 +40,8 @@ app.factory('authInterceptor',function(){
 		if(token){
 	 		token=token.message;
 	 		console.log(config.url+"/"+token);
-	 		config.url=config.url+"/"+token;
-	 		config.headers.Authorization=token;
+//	 		config.url=config.url+"/"+token;
+	 		config.headers.authToken=token;
 	 	}
 	 	return config;
 	},
