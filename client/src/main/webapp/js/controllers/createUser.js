@@ -1,10 +1,7 @@
-
- 
-
 app.controller('createUserController',function($scope,$location){
-	$scope.register=function()
+	$scope.register=function(form)
 	{
-		if($scope.password != $scope.confirmPassword)
+		if($scope.password != $scope.confirmPassword)//$scope.confirmPassword)
 		{
 			
 			alert("Password Mismatched");
@@ -24,30 +21,33 @@ app.controller('createUserController',function($scope,$location){
 
 });
 
-// app.directive("firstname", function () {
-//     return {
-//         restrict: "A",
-//         require: "?ngModel",
-//         link: function (scope, element, attributes, ngModel) {
-//             ngModel.$validators.firstname = function (modelValue) {
-//                 if (password==confirmPassword) {
-//                     return true;
-//                 }
-//                 else return false;
-//             };
-//         }
-//     };
-// });
 
-
-app.directive('wjValidationError', function () {
-  return {
-    require: 'ngModel',
-    link: function (scope, elm, attrs, ctl) {
-      scope.$watch(attrs['wjValidationError'], function (errorMsg) {
-        elm[0].setCustomValidity(errorMsg);
-        ctl.$setValidity('wjValidationError', errorMsg ? false : true);
-      });
-    }
-  };
+app.directive('passwordValidation', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attr, ctrl) {
+            function customValidator(ngModelValue) {
+                if (/[A-Z]/.test(ngModelValue)) {
+                    ctrl.$setValidity('uppercaseValidator', true);
+                } else {
+                    ctrl.$setValidity('uppercaseValidator', false);
+                }
+                if (/[0-9]/.test(ngModelValue)) {
+                    ctrl.$setValidity('numberValidator', true);
+                } else {
+                    ctrl.$setValidity('numberValidator', false);
+                }
+                if (ngModelValue.length >= 6) {
+                    ctrl.$setValidity('sixCharactersValidator', true);
+                } else {
+                    ctrl.$setValidity('sixCharactersValidator', false);
+                }
+                return ngModelValue;
+            }
+            ctrl.$parsers.push(customValidator);
+        }
+    };
 });
+
+
