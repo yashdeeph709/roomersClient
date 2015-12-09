@@ -1,14 +1,14 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('createRoomCtrl', function($scope,$http,SERVERADDRESS) {
+	app.controller('createRoomCtrl', function($scope,$http,SERVER_ADDRESS) {
 	  $scope.createRoom= function() {
 	 	  if($scope.roomInternet==null){
 			  $scope.roomInternet = "false";
 	 	  }
 	 	  var request = {
 	 					method: 'POST',
-	 					url: SERVERADDRESS+'createRoom',
+	 					url: SERVER_ADDRESS+'createRoom',
 	 					data:{
 	 						roomName: $scope.roomName,
 	 						roomCity: $scope.roomCity,
@@ -30,7 +30,7 @@
 			.error(function(data){alert(data);});
 	      };
 	    $scope.show=function(){
-	    	$http.get(SERVERADDRESS+"availRoomName/"+$scope.roomName)
+	    	$http.get(SERVER_ADDRESS+"availRoomName/"+$scope.roomName)
 	    	.success(function(data){
 		    	if(data.status==="false"){
 		    		$scope.avail=true;

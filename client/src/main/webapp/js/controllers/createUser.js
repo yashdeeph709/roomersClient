@@ -1,9 +1,18 @@
 (function(){
 	var app=angular.module("UserModule");
 	
-	app.controller('createUserCtrl',function($scope,$location,SERVERADDRESS){
+	app.controller('createUserCtrl',function($scope,$location,SERVER_ADDRESS){
 		$scope.register=function(form)
 		{
+			var params={
+					name:$scope.name,
+					email:$scope.email,
+					password: $scope.password,
+					rights: 2
+			};
+			$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
+					alert(data);
+		});
 			if($scope.password != $scope.confirmPassword)
 			{
 				alert("Password Mismatched");

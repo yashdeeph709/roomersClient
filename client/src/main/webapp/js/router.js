@@ -1,10 +1,6 @@
 var app=angular.module("RoomApp");
 
 app.config(function($stateProvider,$urlRouterProvider){
-	$stateProvider.state('home',{
-		url:'/home',
-		templateUrl:'views/home.html'
-	});
 	$stateProvider.state('displayUsers',{
 		url:'/displayUsers',
 		templateUrl:'views/displayUsers.html'
@@ -22,5 +18,5 @@ app.config(function($stateProvider,$urlRouterProvider){
 		templateUrl:'views/viewRoom.html'
 	});
 
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/displayUsers');
 });

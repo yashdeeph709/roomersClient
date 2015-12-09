@@ -1,94 +1,79 @@
-<div>
-<form name="RegistrationForm" class="form-horizontal" ng-controller="createUserCtrl" novalidate>
+<form name="RegistrationForm" class="form-horizontal" data-ng-controller="createUserCtrl" novalidate>
 <fieldset>
 <legend>User Registration Form</legend>
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Username</label>  
   <div class="col-md-4">
-  <input name="name"  ng-model="name" type="text"  class="form-control input-md" required>
-  <span style="color:red" ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
-  <span ng-show="RegistrationForm.name.$error.required">Username is required.</span>
+  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" required>
+  <span style="color:red" data-ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
+  <span data-ng-show="RegistrationForm.name.$error.required">Username is required.</span>
    </span> 
   </div>
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="radios">Rights:</label>
+  <label class="col-md-4 control-label">Rights:</label>
   <div class="col-md-4"> 
     <label class="radio-inline">
-      <input type="radio" name="rights" id="admin" value="0" checked="checked">
-      Admin
+      <input type="radio" name="rights" value="0" checked="checked">
+      Administrator
     </label> 
     <label class="radio-inline">
-      <input type="radio" name="rights" id="subAdmin" value="1">
-      Sub-Admin
+      <input type="radio" name="rights" value="1">
+      Sub-Administrator
     </label> 
     <label class="radio-inline">
-      <input type="radio" name="rights" id="user" value="2">
+      <input type="radio" name="rights" value="2">
       User 
     </label> 
-  
   </div>
 </div>
 
-<!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="email_Id">Enter Email Id</label>  
+  <label class="col-md-4 control-label">Enter Email Id</label>  
   <div class="col-md-4">
-  <input id="email_Id" name="email_Id" ng-model="email_Id" type="text" placeholder="abc@example.com" class="form-control input-md" required>
-  <span style="color:red" ng-show="RegistrationForm.email_Id.$dirty && RegistrationForm.email_Id.$invalid">
-  <span ng-show="RegistrationForm.email_Id.$error.required">Email is required.</span>
-    <span ng-show="RegistrationForm.email_Id.$error.$invalid">Invalid email address.</span>
-
+  <input name="email" data-ng-model="email" type="text" placeholder="abc@example.com" class="form-control input-md" required>
+  <span style="color:red" data-ng-show="RegistrationForm.email.$dirty && RegistrationForm.email.$invalid">
+  <span data-ng-show="RegistrationForm.email.$error.required">Email is required.</span>
+    <span data-ng-show="RegistrationForm.email.$error.$invalid">Invalid email address.</span>
   </span>
-  
   </div>
 </div>
 
-
-
-<!-- Password input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="password">Enter Password</label>
+  <label class="col-md-4 control-label">Enter Password</label>
   <div class="col-md-4">
-    <input id="password" name="password" ng-model="password" type="password" ng-minlength="6" class="form-control input-md" 
+    <input id="password" name="password" data-ng-model="password" type="password" data-ng-minlength="6" class="form-control input-md" 
     	required pattern=".{2,}">
-  <span style="color:red" ng-show="RegistrationForm.password.$dirty && RegistrationForm.password.$invalid">
-
-		<span ng-show="RegistrationForm.password.$error.uppercaseValidator">Password should contain at least 1 uppercase</span><br/>
-		 <span ng-show="RegistrationForm.password.$error.numberValidator">Password should contain at least 1 number</span><br/>
-   		<span  ng-show="RegistrationForm.password.$error.minlength">Password should have atleast 6 characters</span><br/>
-    	<span ng-show="RegistrationForm.password.$error.required">Password is required.</span>
+	  <span style="color:red" data-ng-show="RegistrationForm.password.$dirty && RegistrationForm.password.$invalid">
+		<span data-ng-show="RegistrationForm.password.$error.uppercaseValidator">Password should contain at least 1 upper case</span><br/>
+		 <span data-ng-show="RegistrationForm.password.$error.numberValidator">Password should contain at least 1 number</span><br/>
+   		<span  data-ng-show="RegistrationForm.password.$error.minlength">Password should have at least 6 characters</span><br/>
+    	<span data-ng-show="RegistrationForm.password.$error.required">Password is required.</span>
     </span>
     
   </div>
 </div>
 
-<!-- confirm Password-->
 <div class="form-group">
   <label class="col-md-4 control-label">Confirm Password</label>
   <div class="col-md-4">
-    <input id="confirmPassword" name="confirmPassword" ng-model="confirmPassword" type="password"  class="form-control input-md" 
+    <input id="confirmPassword" name="confirmPassword" data-ng-model="confirmPassword" type="password"  class="form-control input-md" 
      required>
-  <span style="color:red" ng-show="RegistrationForm.confirmPassword.$dirty && RegistrationForm.confirmPassword.$invalid">
-    <span ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span><br/>
+  <span style="color:red" data-ng-show="RegistrationForm.confirmPassword.$dirty && RegistrationForm.confirmPassword.$invalid">
+    <span data-ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span><br/>
     </span>
   </div>
+</div>
 
-
-  <!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-8">
-
-    <button id="btn_register" name="btn_register" class="btn btn-primary" ng-click="register()" ng-disabled="RegistrationForm.$invalid">Register</button>
-    <button id="btn_cancel" name="btn_cancel" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+<div class="form-group col-md-offset-5">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-8">
+    <button class="btn btn-primary" data-ng-click="register()" data-ng-disabled="RegistrationForm.$invalid">Register</button>
+    <button class="btn btn-primary" data-ng-click="cancel()">Cancel</button>
   </div>
 </div>
 
-</div>
 
 </fieldset>
 </form>
-
-</div>
