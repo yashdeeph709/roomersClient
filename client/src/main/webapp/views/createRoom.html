@@ -7,7 +7,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="roomName">Room Name: </label>  
   <div class="col-md-4">
-  <input type="text" name="roomName" ng-model="roomName" required  placeholder="Enter Room Name" class="form-control input-md"/>
+  <p><input type="text" name="roomName" ng-model="roomName" data-ng-change="show()" required  placeholder="Enter Room Name" class="form-control input-md"/><span data-ng-show="avail" style="color:red">&#x2717</span></p>
 	<span style="color:red" ng-show="CreateRoom.roomName.$dirty && CreateRoom.roomName.$invalid">
   		<span ng-show="CreateRoom.roomName.$error.required">Name is required.</span>
 	</span>
@@ -145,12 +145,6 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
 
- 
- 
- 
- 
- 
- 
   <div class="col-md-4">
     <button id="singlebutton"  ng-click="createRoom()" ng-disabled="CreateRoom.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
   </div>

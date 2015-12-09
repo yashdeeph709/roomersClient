@@ -33,4 +33,21 @@ app.controller('CreateRoomController', function($scope,$http,$window) {
           });
         
       };
+      
+      $scope.ctr=0;
+    $scope.show=function(){
+    	
+    	$http.get("http://127.0.0.1:8080/availRoomName/"+$scope.roomName).success(function(data){
+		//	alert("User Deleted Successfully!");
+		
+    	if(data.status==="false"){
+    		$scope.avail=true;
+    	}
+    	else{
+    			$scope.avail=false;
+    	}
+    	console.log($scope.roomName);
+    	});
+    }
+    	
 });

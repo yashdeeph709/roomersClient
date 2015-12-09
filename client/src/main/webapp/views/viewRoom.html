@@ -1,0 +1,32 @@
+<div class="panel panel-info" data-ng-controller="viewRoomCtrl">
+	<div class="panel-heading">
+	View Rooms
+	</div>
+	<div class="panel-body">
+	<div class="form-group">
+	<label>Enter Room Name to Search for a Room</label>
+	<input class="form-control input-md" type="text" placeholder="Enter Room Name" data-ng-model="text">
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<td>Name</td>
+			<td>City</td>
+			<td>Location</td>
+			<td>Block</td>
+			<td>Address</td>
+		</tr>
+		
+		<tr data-ng-repeat="room in rooms|filter:text">
+			<td>{{$index+1}}</td>
+			<td>{{room.roomName}}</td>
+			<td>{{room.roomCity}}</td>
+			<td>{{room.roomLocation}}</td>
+			<td>{{room.roomBlock}}</td>
+			<td>{{room.roomAddress}}</td>
+			
+			<td><button class="btn btn-info" data-ng-click="deleteRoom(room.roomName)" accesskey="d"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			
+		</tr>
+	</table>
+	</div>
+</div>

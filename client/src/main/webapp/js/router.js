@@ -7,7 +7,7 @@ app.config(function($stateProvider,$urlRouterProvider){
 	});
 	$stateProvider.state('displayUsers',{
 		url:'/displayUsers',
-		templateUrl:'views/displayusers.html'
+		templateUrl:'views/displayUsers.html'
 	});
 	$stateProvider.state('createRoom',{
 		url:'/createRoom',
@@ -16,6 +16,10 @@ app.config(function($stateProvider,$urlRouterProvider){
 	$stateProvider.state('createUser',{
 		url:'/createUser',
 		templateUrl:'views/createUser.html'
+	});
+	$stateProvider.state('viewRoom',{
+		url:'/viewRoom',
+		templateUrl:'views/viewRoom.html'
 	});
 
 	$urlRouterProvider.otherwise('/home');
