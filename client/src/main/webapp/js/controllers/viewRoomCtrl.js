@@ -1,11 +1,9 @@
-var app=angular.module("RoomApp")
-
-app.controller('viewRoomCtrl', function($scope,$http){
+(function(){
+	var app=angular.module("RoomModule")
 	
-	$http.get("http://127.0.0.1:8080/getRooms").success(function(data){
-		$scope.rooms=data;
-	});
-	
-	/*****viewRoomCtrl.js****************/
-	
-});
+	app.controller('viewRoomCtrl', function($scope,$http,SERVERADDRESS){
+		$http.get(SERVERADDRESS+"getRooms").success(function(data){
+			$scope.rooms=data;
+		});
+	});	
+})();

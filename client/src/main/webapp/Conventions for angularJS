@@ -17,7 +17,7 @@ define controllers in this way so that we can minimize our code in last.
 11) install nodejs(with default options) from its website and then on cmd npm install -g http-server
 12) as per user story add a folder in views and add your template there for that
 13) Add more and give a pull request to us we will update
-
+14) Use Only $http.get and $http.post syntax donot use $http() syntax
 
 Instructions for using this seed -----------
 1) just add a route.
