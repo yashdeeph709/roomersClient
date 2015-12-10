@@ -18,7 +18,7 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		url:'/viewRoom',
 		templateUrl:'views/viewRoom.html'
 	});
-	$stateProvider.state('updateRoom',{
+	$stateProvider.state('profileAdmin.updateRoom',{
 		url:'/updateRoom/:id',
 		templateUrl:'views/updateRoom.html'
 	});
@@ -59,10 +59,8 @@ app.factory('authInterceptor',function(){
 				return config;
 			}
 			if(token){
-				console.log(token.id);
 		 		token=token.id;
 		 		config.headers.authToken=token;
-		 		console.log(config)
 		 	}
 		 	return config;
 		},
