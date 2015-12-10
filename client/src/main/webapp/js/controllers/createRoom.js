@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('createRoomCtrl', function($scope,$http,SERVER_ADDRESS,toaster) {
+	app.controller('createRoomCtrl',['$scope','$http','SERVER_ADDRESS','toaster',function($scope,$http,SERVER_ADDRESS,toaster) {
 	  $scope.createRoom= function() {
 	 	  if($scope.roomInternet==null){
 			  $scope.roomInternet = "false";
@@ -46,5 +46,5 @@
 	    	});
 	    }
 	    	
-	});
+	}]);
 })();

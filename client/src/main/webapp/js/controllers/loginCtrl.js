@@ -1,8 +1,9 @@
 (function(){
 	var app=angular.module("UserModule");
-	app.controller("loginCtrl",function($scope,$http,SERVER_ADDRESS,$state,toaster){
+	app.controller("loginCtrl",['$scope','$http','SERVER_ADDRESS','$state','toaster',function($scope,$http,SERVER_ADDRESS,$state,toaster){
 		$scope.login=function(){
 			$http.post(SERVER_ADDRESS+"login",{email:$scope.email,password:$scope.password}).success(function(data){
+				console.log(data.status!=="failed");
 				if(data.status!=="failed"){
 					localStorage.setItem("Token",JSON.stringify(data.dataOne));
 					if(data.dataOne.rights==="0.0"){
@@ -19,5 +20,5 @@
 				}
 			});
 		}
-	});
+	}]);
 })();

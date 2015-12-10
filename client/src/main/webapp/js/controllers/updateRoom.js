@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('updateRoomCtrl', function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
+	app.controller('updateRoomCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
 		
 	$http.get(SERVER_ADDRESS+"getRequiredRoom/"+$stateParams.id)
 	.success(function(data){
@@ -61,6 +61,6 @@
 	    }
 	    	
 
-	});
+	}]);
 
 })();
