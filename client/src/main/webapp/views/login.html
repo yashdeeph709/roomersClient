@@ -7,24 +7,24 @@
 <div class="panel panel-info">
 <div class="panel-heading">Login to Room Management</div>
 <div class="panel-body">
-<form class="form-horizontal" name="CreateRoom" novalidate>
+<form class="form-horizontal" name="Login" novalidate>
 <fieldset>
 <div class="form-group">
   <div class="col-md-12">
-  <input type="text" name="email" data-ng-model="email" data-ng-change="show()" required  placeholder="Enter Email" class="form-control input-md"/>
+  <input type="text" name="email" data-ng-model="email" data-ng-change="show()" required  placeholder="Enter Email" class="form-control input-md" required/>
  </div>
 </div>
 
 <div class="form-group">
   <div class="col-md-12">
-  <input type="text" name="password" data-ng-model="password" required placeholder="Enter Your Password" class="form-control input-md"/>
+  <input type="type" name="password" data-ng-model="password" required placeholder="Enter Your Password" class="form-control input-md" required/>
   </div>
 </div>
-
 <div class="form-group">
   <label class="col-md-12 control-label"></label>
   <div class="col-md-12">
-    <button  data-ng-click="login()" value="Add Room" class="btn btn-primary btn-xlarge">Login</button>
+    <button  data-ng-click="login()" ng-disabled="Login.$invalid" value="Add Room" class="btn btn-primary btn-xlarge">Login</button>
+     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
   </div>
 </div>
 </fieldset>
