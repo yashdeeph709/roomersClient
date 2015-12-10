@@ -15,16 +15,12 @@
   <label class="col-md-4 control-label">Rights:</label>
   <div class="col-md-4"> 
     <label class="radio-inline">
-      <input type="radio" name="rights" value="0" checked="checked">
-      Administrator
+      <input type="radio" checked="checked" name="rights" value="2">
+      User 
     </label> 
     <label class="radio-inline">
       <input type="radio" name="rights" value="1">
       Sub-Administrator
-    </label> 
-    <label class="radio-inline">
-      <input type="radio" name="rights" value="2">
-      User 
     </label> 
   </div>
 </div>
@@ -32,7 +28,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Email Id</label>  
   <div class="col-md-4">
-  <input name="email" data-ng-model="email" type="text" placeholder="abc@example.com" class="form-control input-md" required>
+  <input name="email" data-ng-model="email" type="email" placeholder="abc@example.com" class="form-control input-md" required>
   <span style="color:red" data-ng-show="RegistrationForm.email.$dirty && RegistrationForm.email.$invalid">
   <span data-ng-show="RegistrationForm.email.$error.required">Email is required.</span>
     <span data-ng-show="RegistrationForm.email.$error.$invalid">Invalid email address.</span>

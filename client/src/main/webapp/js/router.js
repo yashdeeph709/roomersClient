@@ -37,7 +37,7 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 	});
 
 	$httpProvider.interceptors.push('authInterceptor');
-	$urlRouterProvider.otherwise('/displayUsers');
+	$urlRouterProvider.otherwise('/home');
 });
 app.factory('authInterceptor',function(){
 		return{
