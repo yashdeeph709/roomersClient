@@ -1,5 +1,5 @@
 (function(){
-	app.factory('authInterceptor',function(){
+	angular.module("RoomApp").factory('authInterceptor',function(){
 		return{
 		request:function(config){
 		var token=JSON.parse(localStorage.getItem("admin"));
