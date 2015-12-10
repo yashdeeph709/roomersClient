@@ -7,7 +7,7 @@
 		});
 		$scope.deleteUser=function(id){
 			console.log(id);
-			$http.get(SERVER_ADDRESS+"delete/"+id).success(function(data){
+			$http.get("http://127.0.0.1:8080/RoomManagement/delete/"+id).success(function(data){
 				alert("User Deleted Successfully!");
 			});
 			$http.get(SERVER_ADDRESS+"getUsers").success(function(data){

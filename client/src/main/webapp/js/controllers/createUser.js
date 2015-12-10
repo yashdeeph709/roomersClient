@@ -2,6 +2,8 @@
 	var app=angular.module("UserModule");
 	
 	app.controller('createUserCtrl',function($scope,$location,SERVER_ADDRESS){
+		
+		
 		$scope.register=function(form)
 		{
 			var params={

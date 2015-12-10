@@ -17,6 +17,11 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		url:'/viewRoom',
 		templateUrl:'views/viewRoom.html'
 	});
+	$stateProvider.state('updateRoom',{
+		url:'/updateRoom/:id',
+		templateUrl:'views/updateRoom.html'
+	});
+
 	$httpProvider.interceptors.push('authInterceptor');
 	$urlRouterProvider.otherwise('/displayUsers');
 });
@@ -39,7 +44,7 @@ app.factory('authInterceptor',function(){
 
 		if(token){
 	 		token=token.message;
-	 		console.log(config.url+"/"+token);
+	 	//	console.log(config.url+"/"+token);
 //	 		config.url=config.url+"/"+token;
 	 		config.headers.authToken=token;
 	 	}
