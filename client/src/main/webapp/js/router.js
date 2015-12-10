@@ -38,7 +38,6 @@ app.factory('authInterceptor',function(){
 		return{
 		request:function(config){
 			var token=JSON.parse(localStorage.getItem("Token"));
-			console.log(token.id);
 			if(config.url.indexOf("RoomManagement")==-1){
 				return config;
 			}
@@ -55,6 +54,7 @@ app.factory('authInterceptor',function(){
 				return config;
 			}
 			if(token){
+				console.log(token.id);
 		 		token=token.id;
 		 		config.headers.authToken=token;
 		 		console.log(config)
