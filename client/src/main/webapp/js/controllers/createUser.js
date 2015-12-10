@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("UserModule");
 	
-	app.controller('createUserCtrl',function($scope,$location,SERVER_ADDRESS){
+	app.controller('createUserCtrl',function($scope,$location,SERVER_ADDRESS,$http){
 		
 		
 		$scope.register=function(form)
