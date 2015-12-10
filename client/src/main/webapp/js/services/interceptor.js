@@ -1,12 +1,16 @@
 (function(){
-	angular.module("RoomApp").factory('authInterceptor',function(){
+var app=angular.module("RoomApp")
+app.factory('authInterceptor',function(){
 		return{
 		request:function(config){
-		var token=JSON.parse(localStorage.getItem("admin"));
+			var token=JSON.parse(localStorage.getItem("Token"));
 			if(config.url.indexOf("RoomManagement")==-1){
 				return config;
 			}
-			if(config.url.indexOf("getAdmin")!=-1){
+/*			if(config.url.indexOf("getAdmin")!=-1){
+				return config;
+			}
+			if(config.url.indexOf("login")!=-1){
 				return config;
 			}
 			if(config.url.indexOf("getUser")!=-1 && config.url.indexOf("getUsers")==-1){
@@ -15,11 +19,8 @@
 			if(config.url.indexOf("getSubAdmin")!=-1){
 				return config;
 			}
-
-			if(token){
-		 		token=token.message;
-		 		console.log(config.url+"/"+token);
-//		 		config.url=config.url+"/"+token;
+*/			if(token){
+		 		token=token.id;
 		 		config.headers.authToken=token;
 		 	}
 		 	return config;
@@ -29,4 +30,4 @@
 		}
 	};
 	});	
-})
+})();

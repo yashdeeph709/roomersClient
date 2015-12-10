@@ -43,7 +43,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Password</label>
   <div class="col-md-4">
-    <input id="password" name="password" data-ng-model="password" type="password" data-ng-minlength="6" class="form-control input-md" 
+    <input id="password" name="password" data-ng-model="password" type="text" data-ng-minlength="6" class="form-control input-md" 
     	required pattern=".{2,}">
 	  <span style="color:red" data-ng-show="RegistrationForm.password.$dirty && RegistrationForm.password.$invalid">
 		<span data-ng-show="RegistrationForm.password.$error.uppercaseValidator">Password should contain at least 1 upper case</span><br/>
@@ -58,7 +58,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Confirm Password</label>
   <div class="col-md-4">
-    <input id="confirmPassword" name="confirmPassword" data-ng-model="confirmPassword" type="password"  class="form-control input-md" 
+    <input id="confirmPassword" name="confirmPassword" data-ng-model="confirmPassword" type="text"  class="form-control input-md" 
      required>
   <span style="color:red" data-ng-show="RegistrationForm.confirmPassword.$dirty && RegistrationForm.confirmPassword.$invalid">
     <span data-ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span><br/>
