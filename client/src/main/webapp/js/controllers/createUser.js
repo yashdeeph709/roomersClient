@@ -9,8 +9,7 @@
 			var params={
 					name:$scope.name,
 					email:$scope.email,
-					password: $scope.password,
-					rights: 2
+					password: $scope.password
 			};
 			$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
 					alert(data);

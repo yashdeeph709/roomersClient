@@ -1,19 +1,20 @@
 var app=angular.module("RoomApp");
 
 app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
-	$stateProvider.state('displayUsers',{
+	
+	$stateProvider.state('profileAdmin.displayUsers',{
 		url:'/displayUsers',
 		templateUrl:'views/displayUsers.html'
 	});
-	$stateProvider.state('createRoom',{
+	$stateProvider.state('profileAdmin.createRoom',{
 		url:'/createRoom',
 		templateUrl:'views/createRoom.html'
 	});
-	$stateProvider.state('createUser',{
+	$stateProvider.state('profileAdmin.createUser',{
 		url:'/createUser',
 		templateUrl:'views/createUser.html'
 	});
-	$stateProvider.state('viewRoom',{
+	$stateProvider.state('profileAdmin.viewRoom',{
 		url:'/viewRoom',
 		templateUrl:'views/viewRoom.html'
 	});
@@ -22,36 +23,51 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		templateUrl:'views/updateRoom.html'
 	});
 
+	$stateProvider.state('home',{
+		url:'/home',
+		templateUrl:'views/login.html'
+	});
+	$stateProvider.state('profile',{
+		url:'/profile',
+		templateUrl:'views/profile.html'
+	});
+	$stateProvider.state('profileAdmin',{
+		url: '/profileAdmin',
+		templateUrl:'views/profileAdmin.html'
+	});
+
 	$httpProvider.interceptors.push('authInterceptor');
 	$urlRouterProvider.otherwise('/displayUsers');
 });
 app.factory('authInterceptor',function(){
-	return{
-	request:function(config){
-	var token=JSON.parse(localStorage.getItem("admin"));
-		if(config.url.indexOf("RoomManagement")==-1){
-			return config;
+		return{
+		request:function(config){
+			var token=JSON.parse(localStorage.getItem("Token"));
+			if(config.url.indexOf("RoomManagement")==-1){
+				return config;
+			}
+			if(config.url.indexOf("getAdmin")!=-1){
+				return config;
+			}
+			if(config.url.indexOf("login")!=-1){
+				return config;
+			}
+			if(config.url.indexOf("getUser")!=-1 && config.url.indexOf("getUsers")==-1){
+				return config;
+			}
+			if(config.url.indexOf("getSubAdmin")!=-1){
+				return config;
+			}
+			if(token){
+				console.log(token.id);
+		 		token=token.id;
+		 		config.headers.authToken=token;
+		 		console.log(config)
+		 	}
+		 	return config;
+		},
+		response:function(response){
+			return response;
 		}
-		if(config.url.indexOf("getAdmin")!=-1){
-			return config;
-		}
-		if(config.url.indexOf("getUser")!=-1 && config.url.indexOf("getUsers")==-1){
-			return config;
-		}
-		if(config.url.indexOf("getSubAdmin")!=-1){
-			return config;
-		}
-
-		if(token){
-	 		token=token.message;
-	 	//	console.log(config.url+"/"+token);
-//	 		config.url=config.url+"/"+token;
-	 		config.headers.authToken=token;
-	 	}
-	 	return config;
-	},
-	response:function(response){
-		return response;
-	}
-};
-});
+	};
+	});	

@@ -10,7 +10,7 @@
 			$http.get("http://127.0.0.1:8080/RoomManagement/delete/"+id).success(function(data){
 				alert("User Deleted Successfully!");
 			});
-			$http.get(SERVER_ADDRESS+"getUsers").success(function(data){
+			$http.get("http://127.0.0.1:8080/RoomManagement/getUsers").success(function(data){
 				$scope.users=data.data;
 			});
 		}
