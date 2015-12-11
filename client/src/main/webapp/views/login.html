@@ -24,7 +24,20 @@
   <label class="col-md-12 control-label"></label>
   <div class="col-md-12">
     <button  data-ng-click="login()" ng-disabled="Login.$invalid" value="Add Room" class="btn btn-primary btn-xlarge">Login</button>
-     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<toaster-container toaster-options="{
+  'closeButton': false,
+  'debug': false,
+  'position-class': 'toast-top-right',
+  'onclick': null,
+  'showDuration': '200',
+  'hideDuration': '1000',
+  'timeOut': '5000',
+  'extendedTimeOut': '1000',
+  'showEasing': 'swing',
+  'hideEasing': 'linear',
+  'showMethod': 'fadeIn',
+  'hideMethod': 'fadeOut'
+}"></toaster-container>
   </div>
 </div>
 </fieldset>

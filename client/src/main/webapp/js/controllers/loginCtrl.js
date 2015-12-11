@@ -6,6 +6,7 @@
 			.success(function(data){
 				console.log(data.status!=="failed");
 				if(data.status!=="failed"){
+					console.log(data.status);
 					localStorage.setItem("Token",JSON.stringify(data.dataOne));
 					if(data.dataOne.rights==="0.0"){
 						$state.go("profileAdmin.displayUsers");
@@ -17,7 +18,7 @@
 						}
 					}
 				}else{
-				       toaster.pop('warning', "Message", '<h5>Username or Password Incorrect</h5>', 3000, 'trustedHtml');
+				       toaster.pop('warning', "Message", '<h5>Username or Password Incorrect</h5>', 0, 'trustedHtml');
 				}
 			}).error(function(){
 				       toaster.pop('error', "Message", '<h5>Server Error</h5>', 3000, 'trustedHtml');
