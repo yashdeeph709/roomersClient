@@ -3,8 +3,8 @@
 
 	app.controller('updateRoomCtrl', function($scope,$http,SERVER_ADDRESS,$stateParams) {
 		
-		console.log("*************"+$stateParams.id);
-	$http.get("http://127.0.0.1:8080/RoomManagement/getRequiredRoom/"+$stateParams.id).success(function(data){
+
+	$http.get("http://127.0.0.1:8080/RoomManagement/room/"+$stateParams.id).success(function(data){
 				$scope.roomName=data.dataOne.roomName;
 				$scope.roomCity=data.dataOne.roomCity;
 				$scope.roomLocation=data.dataOne.roomLocation;

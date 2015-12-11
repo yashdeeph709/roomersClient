@@ -19,7 +19,7 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		templateUrl:'views/viewRoom.html'
 	});
 	$stateProvider.state('updateRoom',{
-		url:'/updateRoom/:id',
+		url:'/room/:id',
 		templateUrl:'views/updateRoom.html'
 	});
 
