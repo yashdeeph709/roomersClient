@@ -10,7 +10,7 @@
 				var params={	name:$scope.name,  	email:$scope.email, password: $scope.password };
 				$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
 					if(data.status.trim()!="false"){
-						toaster.pop('success', "Message", '<h5>'+data.message+'User Created Successfully!</h5>', 3000, 'trustedHtml');
+						toaster.pop('success', "Message", '<h5>'+data.message+'!</h5>', 3000, 'trustedHtml');
 					}else{
 						toaster.pop('warning', "Message", '<h5>User Already Exists!</h5>', 3000, 'trustedHtml');				
 					}
