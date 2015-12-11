@@ -13,7 +13,11 @@
 					password: $scope.password
 			};
 			$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
+				if(data.status.trim()!="false"){
 				toaster.pop('success', "Message", '<h5>'+data.message+'User Created Successfully!</h5>', 3000, 'trustedHtml');
+				}else{
+				toaster.pop('warning', "Message", '<h5>User Already Exists!</h5>', 3000, 'trustedHtml');				
+				}
 			}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});
 			}
