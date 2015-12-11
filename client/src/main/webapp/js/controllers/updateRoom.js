@@ -24,7 +24,7 @@
 	$scope.updateRoom= function() {
 	 	  var request = {
 	 					method: 'POST',
-	 					url: SERVER_ADDRESS+'updateRoom',
+	 					url: SERVER_ADDRESS+'room',
 	 					data:{
 	 						roomName: $scope.roomName,
 	 						roomCity: $scope.roomCity,
