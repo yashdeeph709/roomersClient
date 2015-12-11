@@ -6,7 +6,7 @@
 <form name="RegistrationForm" class="form-horizontal" data-ng-controller="createUserCtrl" novalidate>
 <fieldset>
 <div class="form-group">
-  <label class="col-md-4 control-label">Enter Username</label>  
+  <label class="col-md-4 control-label">Enter Name:</label>  
   <div class="col-md-4">
   <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" required>
   <span style="color:red" data-ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
@@ -35,7 +35,7 @@
   <input name="email" data-ng-model="email" type="email" placeholder="abc@example.com" class="form-control input-md" required>
   <span style="color:red" data-ng-show="RegistrationForm.email.$dirty && RegistrationForm.email.$invalid">
   <span data-ng-show="RegistrationForm.email.$error.required">Email is required.</span>
-    <span data-ng-show="RegistrationForm.email.$error.$invalid">Invalid email address.</span>
+    <span data-ng-show="RegistrationForm.email.$error.email">Invalid email address.</span>
   </span>
   </div>
 </div>

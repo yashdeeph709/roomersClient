@@ -67,7 +67,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Room Capacity: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required placeholder="Enter Capacity" class="form-control input-md"/>
+  <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required placeholder="Enter Capacity" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomCapacity.$dirty && CreateRoom.roomCapacity.$invalid">
   <span data-ng-show="CreateRoom.roomCapacity.$error.required">Capacity is required.</span>
 </span>
@@ -77,7 +77,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Tables: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" class="form-control input-md"/>
+  <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomTables.$dirty && CreateRoom.roomTables.$invalid">
   <span data-ng-show="CreateRoom.roomTables.$error.required">Table count is required.</span>
 </span>
@@ -87,7 +87,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Machines: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" class="form-control input-md"/>
+  <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomMachines.$dirty && CreateRoom.roomMachines.$invalid">
   <span data-ng-show="CreateRoom.roomMachines.$error.required">Machine count is required.</span>
 </span>
@@ -97,7 +97,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Board: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" class="form-control input-md"/>
+  <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomBoard.$dirty && CreateRoom.roomBoard.$invalid">
   <span data-ng-show="CreateRoom.roomBoard.$error.required">Board count is required.</span>
 </span>
@@ -107,7 +107,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Charts: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" class="form-control input-md"/>
+  <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomChart.$dirty && CreateRoom.roomChart.$invalid">
   <span data-ng-show="CreateRoom.roomChart.$error.required">Chart count is required.</span>
 </span>
@@ -118,7 +118,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Screens: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" class="form-control input-md"/>
+  <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomScreen.$dirty && CreateRoom.roomScreen.$invalid">
   <span data-ng-show="CreateRoom.roomScreen.$error.required">Screen count is required.</span>
  </span>
@@ -129,7 +129,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Projectors: </label>  
   <div class="col-md-4">
-  <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" class="form-control input-md"/>
+  <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" min="1" max="1000" class="form-control input-md"/>
 <span style="color:red" data-ng-show="CreateRoom.roomProjector.$dirty && CreateRoom.roomProjector.$invalid">
   <span data-ng-show="CreateRoom.roomProjector.$error.required">Projector count is required.</span>
  </span>
