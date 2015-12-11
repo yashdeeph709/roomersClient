@@ -1,6 +1,5 @@
 (function(){
 	var app=angular.module("UserModule");
-	app.controller("adminProfileCtrl",function($scope,$http,SERVER_ADDRESS,$state){
-		console.log("adminProfileCtrl loaded!")
-	});
+	app.controller("adminProfileCtrl",['$scope','$http','SERVER_ADDRESS','$state',function($scope,$http,SERVER_ADDRESS,$state){
+	}]);
 })();

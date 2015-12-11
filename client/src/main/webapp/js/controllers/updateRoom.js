@@ -1,10 +1,10 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('updateRoomCtrl', function($scope,$http,SERVER_ADDRESS,$stateParams) {
+	app.controller('updateRoomCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
 		
-
-	$http.get("http://127.0.0.1:8080/RoomManagement/room/"+$stateParams.id).success(function(data){
+	$http.get(SERVER_ADDRESS+"room/"+$stateParams.id)
+	.success(function(data){
 				$scope.roomName=data.dataOne.roomName;
 				$scope.roomCity=data.dataOne.roomCity;
 				$scope.roomLocation=data.dataOne.roomLocation;
@@ -18,17 +18,10 @@
 				$scope.roomChart=parseInt(data.dataOne.roomChart);
 				$scope.roomProjector=parseInt(data.dataOne.roomProjector);
 				$scope.roomInternet=parseInt(data.dataOne.roomInternet);
-	
-		console.log(typeof(parseInt(data.dataOne.roomCapacity)));
-		console.log(data.data);
-		console.log($scope.roomName=data.dataOne.roomName);
-	});
+	}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			});;
 		
-	
-	  $scope.updateRoom= function() {
-		  console.log("updateRoom")
-		  
-		  
+	$scope.updateRoom= function() {
 	 	  var request = {
 	 					method: 'POST',
 	 					url: SERVER_ADDRESS+'updateRoom',
@@ -49,9 +42,8 @@
 	 					}
 					}
 			$http.post(request.url,request.data)
-			.success(function(data){alert(data.message);})
-			.error(function(data){alert(data);});
-	 	 alert("Room Updated successfully");
+			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');})
+			.error(function(data){toaster.pop('error', "Message", '<h5>Server Error </h5>', 3000, 'trustedHtml');});
 	    };
 	    
 	    
@@ -65,12 +57,11 @@
 		    		$scope.avail=false;
 		    	}
 	    	}).error(function(data){
-	    		
 	    		alert(data);
 	    	});
 	    }
 	    	
 
-	});
+	}]);
 
 })();

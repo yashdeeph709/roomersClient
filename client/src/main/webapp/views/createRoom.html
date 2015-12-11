@@ -1,8 +1,12 @@
-<div data-ng-controller="createRoomCtrl">
+<div class="panel panel-info" data-ng-controller="createRoomCtrl">
+<div class="panel-heading">Create Room</div>
+<div class="panel-body">
 <form class="form-horizontal" name="CreateRoom" novalidate>
 <fieldset>
 
-<legend>Enter Room Details</legend>
+<h5>Enter Room Details</h5>
+<hr>
+
 <div class="form-group">
   <label class="col-md-4 control-label">Room Name: </label>  
   <div class="col-md-4">
@@ -13,7 +17,9 @@
  </div>
 </div>
 
-<legend>Venue Details</legend>
+<h5>Venue Details</h5>
+<hr>
+
 <div class="form-group">
   <label class="col-md-4 control-label">Enter City: </label>  
   <div class="col-md-4">
@@ -54,7 +60,9 @@
 </div>
 </div>
 
-<legend>Facilities</legend>
+<h5>Facilities</h5>
+<hr>
+
 
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Room Capacity: </label>  
@@ -116,6 +124,7 @@
  </span>
 </div>
 </div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
 
 <div class="form-group">
   <label class="col-md-4 control-label">Enter No. Of Projectors: </label>  
@@ -143,8 +152,6 @@
 
   <div class="col-md-4">
     <button  data-ng-click="createRoom()" data-ng-disabled="CreateRoom.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
-  </div>
-  <div class="col-md-4">
     <button value="Reset" class="btn btn-primary">Reset</button>
   </div>
 </div>

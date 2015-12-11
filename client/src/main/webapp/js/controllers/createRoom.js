@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('createRoomCtrl', function($scope,$http,SERVER_ADDRESS) {
+	app.controller('createRoomCtrl',['$scope','$http','SERVER_ADDRESS','toaster',function($scope,$http,SERVER_ADDRESS,toaster) {
 	  $scope.createRoom= function() {
 	 	  if($scope.roomInternet==null){
 			  $scope.roomInternet = "false";
@@ -26,8 +26,10 @@
 	 					}
 					}
 			$http.post(request.url,request.data)
-			.success(function(data){alert(data.message);})
-			.error(function(data){alert(data);});
+			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');
+			})
+			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			});
 	      };
 	    $scope.show=function(){
 	    	$http.get(SERVER_ADDRESS+"availRoomName/"+$scope.roomName)
@@ -44,5 +46,5 @@
 	    	});
 	    }
 	    	
-	});
+	}]);
 })();

@@ -1,1 +1,119 @@
+#form-views {
+    width: auto;
+}
 
+#form-views.ng-enter,
+#form-views.ng-leave {
+    position: absolute;
+    transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+}
+
+#form-views.ng-enter {
+    -webkit-animation: slideInRight 0.8s both ease;
+    -moz-animation: slideInRight 0.8s both ease;
+    animation: slideInRight 0.8s both ease;
+}
+
+#form-views.ng-leave {
+    -webkit-animation: slideOutLeft 0.8s both ease;
+    -moz-animation: slideOutLeft 0.8s both ease;
+    animation: slideOutLeft 0.8s both ease;
+}
+
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@-moz-keyframes slideOutLeft {
+    to {
+        -moz-transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        -moz-transform: translateX(200%);
+    }
+    to {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(200%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+    }
+}
+
+.animate {
+    width: auto;
+}
+
+.animate.ng-enter,
+.animate.ng-leave {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    transition: 0.5s all ease-out;
+    -moz-transition: 0.5s all ease-out;
+    -webkit-transition: 0.5s all ease;
+}
+
+.animate.ng-enter {
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
+}
+
+.animate.ng-leave {
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
+}
+.animateDown {
+    width: auto;
+}
+
+.animateDown.ng-enter,
+.animateDown.ng-leave {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    transition: 0.5s all ease-out;
+    -moz-transition: 0.5s all ease-out;
+    -webkit-transition: 0.5s all ease;
+}
+
+.animateDown.ng-enter {
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
+}
+
+.animateDown.ng-leave {
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
+}
