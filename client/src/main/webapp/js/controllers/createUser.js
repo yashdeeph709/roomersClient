@@ -14,6 +14,7 @@
 			};
 			$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
 				toaster.pop('success', "Message", '<h5>'+data.message+'User Created Successfully!</h5>', 3000, 'trustedHtml');
+			}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});
 			}
 		}

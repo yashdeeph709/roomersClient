@@ -18,7 +18,8 @@
 				$scope.roomChart=parseInt(data.dataOne.roomChart);
 				$scope.roomProjector=parseInt(data.dataOne.roomProjector);
 				$scope.roomInternet=parseInt(data.dataOne.roomInternet);
-	});
+	}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			});;
 		
 	$scope.updateRoom= function() {
 	 	  var request = {
@@ -42,7 +43,7 @@
 					}
 			$http.post(request.url,request.data)
 			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');})
-			.error(function(data){toaster.pop('error', "Message", '<h5>Room Not updated </h5>', 3000, 'trustedHtml');});
+			.error(function(data){toaster.pop('error', "Message", '<h5>Server Error </h5>', 3000, 'trustedHtml');});
 	    };
 	    
 	    

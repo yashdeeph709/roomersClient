@@ -28,7 +28,7 @@
 			$http.post(request.url,request.data)
 			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');
 			})
-			.error(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');
+			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});
 	      };
 	    $scope.show=function(){
