@@ -8,9 +8,10 @@
 				toaster.pop('warning', "Message", '<h5>Password Mismatched!</h5>', 3000, 'trustedHtml');
 			}else{
 				var params={	name:$scope.name,  	email:$scope.email, password: $scope.password };
-				$http.post(SERVER_ADDRESS+"/register",params).success(function(data){
-					if(data.status.trim()!="false"){
-						toaster.pop('success', "Message", '<h5>'+data.message+'!</h5>', 3000, 'trustedHtml');
+				$http.post(SERVER_ADDRESS+"users",params).success(function(data,config){
+					console.log(data);
+					if(config==201){
+						toaster.pop('success', "Message", '<h5>New User Create with name'+params.name+'!</h5>', 3000, 'trustedHtml');
 					}else{
 						toaster.pop('warning', "Message", '<h5>User Already Exists!</h5>', 3000, 'trustedHtml');				
 					}

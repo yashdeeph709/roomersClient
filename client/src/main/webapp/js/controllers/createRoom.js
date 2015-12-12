@@ -8,7 +8,7 @@
 	 	  }
 	 	  var request = {
 	 					method: 'POST',
-	 					url: SERVER_ADDRESS+'createRoom',
+	 					url: SERVER_ADDRESS+'rooms',
 	 					data:{
 	 						roomName: $scope.roomName,
 	 						roomCity: $scope.roomCity,
@@ -31,7 +31,7 @@
 			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});
 	      };
-	    $scope.show=function(){
+	/*    $scope.show=function(){
 	    	$http.get(SERVER_ADDRESS+"availRoomName/"+$scope.roomName)
 	    	.success(function(data){
 		    	if(data.status==="false"){
@@ -42,9 +42,9 @@
 		    	}
 	    	}).error(function(data){
 	    		
-	    		alert(data);
+//	    		alert(data);
 	    	});
 	    }
-	    	
+	*/    	
 	}]);
 })();

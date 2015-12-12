@@ -3,28 +3,27 @@
 
 	app.controller('updateRoomCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
 		
-	$http.get(SERVER_ADDRESS+"room/"+$stateParams.id)
+	$http.get(SERVER_ADDRESS+"rooms/"+$stateParams.id)
 	.success(function(data){
-				$scope.roomName=data.dataOne.roomName;
-				$scope.roomCity=data.dataOne.roomCity;
-				$scope.roomLocation=data.dataOne.roomLocation;
-				$scope.roomBlock=data.dataOne.roomBlock;
-				$scope.roomAddress=data.dataOne.roomAddress;
-				$scope.roomCapacity=parseInt(data.dataOne.roomCapacity);
-				$scope.roomTables=parseInt(data.dataOne.roomTables);
-				$scope.roomMachines=parseInt(data.dataOne.roomMachines);
-				$scope.roomScreen=parseInt(data.dataOne.roomScreen);
-				$scope.roomBoard=parseInt(data.dataOne.roomBoard);
-				$scope.roomChart=parseInt(data.dataOne.roomChart);
-				$scope.roomProjector=parseInt(data.dataOne.roomProjector);
-				$scope.roomInternet=parseInt(data.dataOne.roomInternet);
+				$scope.roomName=data.roomName;
+				$scope.roomCity=data.roomCity;
+				$scope.roomLocation=data.roomLocation;
+				$scope.roomBlock=data.roomBlock;
+				$scope.roomAddress=data.roomAddress;
+				$scope.roomCapacity=parseInt(data.roomCapacity);
+				$scope.roomTables=parseInt(data.roomTables);
+				$scope.roomMachines=parseInt(data.roomMachines);
+				$scope.roomScreen=parseInt(data.roomScreen);
+				$scope.roomBoard=parseInt(data.roomBoard);
+				$scope.roomChart=parseInt(data.roomChart);
+				$scope.roomProjector=parseInt(data.roomProjector);
+				$scope.roomInternet=parseInt(data.roomInternet);
 	}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});;
 		
 	$scope.updateRoom= function() {
 	 	  var request = {
-	 					method: 'POST',
-	 					url: SERVER_ADDRESS+'room',
+	 					url: SERVER_ADDRESS+'rooms/'+$stateParams.id,
 	 					data:{
 	 						roomName: $scope.roomName,
 	 						roomCity: $scope.roomCity,
@@ -41,7 +40,7 @@
 	 						roomInternet: $scope.roomInternet
 	 					}
 					}
-			$http.post(request.url,request.data)
+			$http.put(request.url,request.data)
 			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 3000, 'trustedHtml');})
 			.error(function(data){toaster.pop('error', "Message", '<h5>Server Error </h5>', 3000, 'trustedHtml');});
 	    };
