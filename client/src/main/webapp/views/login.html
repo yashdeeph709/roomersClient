@@ -11,7 +11,8 @@
 <fieldset>
 <div class="form-group">
   <div class="col-md-12">
-  <input type="text" name="email" data-ng-model="email" data-ng-change="show()" required  placeholder="Enter Email" class="form-control input-md" required/>
+  	<input type="text" name="email" data-ng-model="email" data-ng-change="show()"  required  placeholder="Enter Email" class="form-control input-md" required/>
+  
  </div>
 </div>
 
@@ -23,21 +24,8 @@
 <div class="form-group">
   <label class="col-md-12 control-label"></label>
   <div class="col-md-12">
-    <button  data-ng-click="login()" ng-disabled="Login.$invalid" value="Add Room" class="btn btn-primary btn-xlarge">Login</button>
-<toaster-container toaster-options="{
-  'closeButton': false,
-  'debug': false,
-  'position-class': 'toast-top-right',
-  'onclick': null,
-  'showDuration': '200',
-  'hideDuration': '1000',
-  'timeOut': '5000',
-  'extendedTimeOut': '1000',
-  'showEasing': 'swing',
-  'hideEasing': 'linear',
-  'showMethod': 'fadeIn',
-  'hideMethod': 'fadeOut'
-}"></toaster-container>
+    <button  data-ng-click="login()" ng-disabled="Login.$invalid" value="Add Room" class="btn btn-primary btn-xlarge"><i class="glyphicon glyphicon-user"></i> Login</button>
+
   </div>
 </div>
 </fieldset>
