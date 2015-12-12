@@ -4,7 +4,7 @@ app.factory('authInterceptor',function(){
 		return{
 		request:function(config){
 			var token=JSON.parse(localStorage.getItem("Token"));
-			if(config.url.indexOf("RoomManagement")==-1){
+			if(config.url.indexOf("roommanagement")==-1){
 				return config;
 			}
 /*			if(config.url.indexOf("getAdmin")!=-1){

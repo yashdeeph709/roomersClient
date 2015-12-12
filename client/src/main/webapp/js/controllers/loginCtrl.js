@@ -4,14 +4,12 @@
 		$scope.login=function(){
 			$http.post(SERVER_ADDRESS+"login",{email:$scope.email,password:$scope.password})
 			.success(function(data){
-				console.log(data.status!=="failed");
 				if(data.status!=="failed"){
-					console.log(data.status);
-					localStorage.setItem("Token",JSON.stringify(data.dataOne));
-					if(data.dataOne.rights==="0.0"){
+					localStorage.setItem("Token",JSON.stringify(data));
+					if(data.rights===0){
 						$state.go("profileAdmin.displayUsers");
 					}else{
-						if(data.dataOne.rights==="1.0"){
+						if(data.rights===1){
 							$state.go("profileAdmin.displayUsers");
 						}else{
 							$state.go("profile");
