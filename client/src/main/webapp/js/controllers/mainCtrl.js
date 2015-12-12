@@ -8,6 +8,7 @@ app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope',funct
             $state.go();
     	}
       });
+	$scope.username=JSON.parse(localStorage.getItem("Token")).name;
     $scope.isAuthenticated=function(){
         return localStorage.getItem("Token")!=null?true:false;   
     }

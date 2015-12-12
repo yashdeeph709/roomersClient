@@ -26,9 +26,9 @@
 	 					}
 					}
 			$http.post(request.url,request.data)
-			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Created Successfully!</h5>', 3000, 'trustedHtml');
+			.success(function(data){toaster.pop('success', "Message", '<h5>'+$scope.roomName+' Room Created Successfully!</h5>', 1000, 'trustedHtml');
 			})
-			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});
 	      };
 	/*    $scope.show=function(){

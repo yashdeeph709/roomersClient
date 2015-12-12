@@ -13,10 +13,10 @@
 
 		$scope.deleteUser=function(id){
 			$http.delete(SERVER_ADDRESS+"users/"+id).success(function(data){
-				toaster.pop('warning', "Message", '<h5>User Deleted Successfully!</h5>', 3000, 'trustedHtml');
+				toaster.pop('warning', "Message", '<h5>User Deleted Successfully!</h5>', 1000, 'trustedHtml');
 			}).success(function(){
 				refresh();
-			}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});;
 		}
 		function refresh(){
