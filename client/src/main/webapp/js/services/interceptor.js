@@ -7,19 +7,7 @@ app.factory('authInterceptor',function(){
 			if(config.url.indexOf("roommanagement")==-1){
 				return config;
 			}
-/*			if(config.url.indexOf("getAdmin")!=-1){
-				return config;
-			}
-			if(config.url.indexOf("login")!=-1){
-				return config;
-			}
-			if(config.url.indexOf("getUser")!=-1 && config.url.indexOf("getUsers")==-1){
-				return config;
-			}
-			if(config.url.indexOf("getSubAdmin")!=-1){
-				return config;
-			}
-*/			if(token){
+			if(token){
 		 		token=token.id;
 		 		config.headers.authToken=token;
 		 	}

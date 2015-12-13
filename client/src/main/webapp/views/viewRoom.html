@@ -4,8 +4,10 @@
 	</div>
 	<div class="panel-body">
 	<div class="form-group">
-	<label>Enter Room Name to Search for a Room</label>
-	<input class="form-control input-md" type="text" placeholder="Enter Room Name" data-ng-model="text">
+		<input  type="text" placeholder="Enter Room Capacity" data-ng-model="filter.roomCapacity">
+		<input  type="text" placeholder="Enter Room machines" data-ng-model="filter.roomMachines">
+		<input  type="text" placeholder="Enter Room tables" data-ng-model="filter.roomTables">
+		<input  type="text" placeholder="Enter Room screen" data-ng-model="filter.roomScreen">
 	</div>
 
 	<table class="table table-striped">
@@ -13,19 +15,25 @@
 			<td>S.No.</td>
 			<td>Name</td>
 			<td>City</td>
-			<td>Location</td>
-			<td>Block</td>
-			<td>Address</td>
+			<td>Capacity</td>
+			<td>Machines</td>
+			<td>Tables</td>
+			<td>Projector</td>
+			<td>Ethernet</td>
+			<td>Screen</td>
 			<td>Actions</td>
 		</tr>
 				
-		<tr data-ng-repeat="room in rooms|filter:text">
+		<tr data-ng-repeat="room in rooms|filter:filter">
 			<td>{{$index+1}}</td>
 			<td>{{room.roomName}}</td>
 			<td>{{room.roomCity}}</td>
-			<td>{{room.roomLocation}}</td>
-			<td>{{room.roomBlock}}</td>
-			<td>{{room.roomAddress}}</td>
+			<td>{{room.roomCapacity}}</td>
+			<td>{{room.roomMachines}}</td>
+			<td>{{room.roomTables}}</td>
+			<td>{{room.roomProjector}}</td>
+			<td>{{room.roomInternet}}</td>
+			<td>{{room.roomScreen}}</td>
 			<td>
 			<button class="btn btn-info" data-ng-click="confirm(room.id)" accesskey="d">
 			 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>

@@ -22,7 +22,6 @@
 		function refresh(){
 			console.log("refresh called and request fired!");
 			$http.get(SERVER_ADDRESS+"users").success(function(data){
-				console.log(data);
 				$scope.users=data;
 			}).error(function(data){
 				console.log(data);
