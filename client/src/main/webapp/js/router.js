@@ -7,10 +7,6 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		templateUrl:'views/login.html'
 	});
 
-	$stateProvider.state('profile',{
-		url:'/profile',
-		templateUrl:'views/profile.html'
-	});
 
 	$stateProvider.state('profileAdmin',{
 		url: '/profileAdmin',
@@ -36,6 +32,14 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 	$stateProvider.state('profileAdmin.updateRoom',{
 		url:'/room/:id',
 		templateUrl:'views/updateRoom.html'
+	});
+	$stateProvider.state('profileUser',{
+		url:'/profile',
+		templateUrl:'views/profile.html'
+	});
+	$stateProvider.state('profileUser.checkAvailableRooms',{
+		url:'/checkAvailableRooms',
+		templateUrl:'views/checkAvailbleRooms.html'
 	});
 
 

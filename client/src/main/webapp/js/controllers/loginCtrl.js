@@ -11,7 +11,7 @@
 						if(data.rights===1){
 							$state.go("profileAdmin.displayUsers");
 						}else{
-							$state.go("profile");
+							$state.go("profileUser.checkAvailableRooms");
 						}
 					}				
 			}).error(function(data,error){
