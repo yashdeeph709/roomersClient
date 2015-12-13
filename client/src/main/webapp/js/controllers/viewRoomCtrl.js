@@ -10,10 +10,20 @@
 			$state.go("profileAdmin.updateRoom",{"id":id});
 		}
 		$scope.confirm=function(id){
+			toaster.pop({
+	            title: 'A toast',
+	            body: '<button onclick="ok()"></button><button onclick="cancel()"></button>',
+	            onHideCallback: function () { 
+	                toaster.pop({
+	                    title: 'A toast',
+	                    body: 'invoked as a callback'
+	                });
+	            },
+	            bodyOutputType: 'trustedHtml'
+	         });
 			if(confirm("do you want to delete this user")==true){
-			$scope.deleteRoom(id);
-		}else{
-		}
+			//	$scope.deleteRoom(id);
+			}
 		}
 
 
