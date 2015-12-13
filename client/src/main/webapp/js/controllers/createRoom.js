@@ -30,21 +30,19 @@
 			})
 			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});
+	 	  	$scope.roomName="";
+			$scope.roomCity="";
+			$scope.roomLocation="";
+			$scope.roomBlock="";
+			$scope.roomAddress="";
+			$scope.roomCapacity="";
+			$scope.roomTables="";
+			$scope.roomMachines="";
+			$scope.roomScreen="";
+			$scope.roomBoard="";
+			$scope.roomChart="";
+			$scope.roomProjector="";
+			$scope.roomInternet="";
 	      };
-	/*    $scope.show=function(){
-	    	$http.get(SERVER_ADDRESS+"availRoomName/"+$scope.roomName)
-	    	.success(function(data){
-		    	if(data.status==="false"){
-		    		$scope.avail=true;
-		    	}
-		    	else{
-		    		$scope.avail=false;
-		    	}
-	    	}).error(function(data){
-	    		
-//	    		alert(data);
-	    	});
-	    }
-	*/    	
 	}]);
 })();

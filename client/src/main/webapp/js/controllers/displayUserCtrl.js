@@ -5,7 +5,7 @@
 		refresh();
 		$scope.confirm=function(id){
 			if(confirm("do you want to delete this user")==true){
-			$scope.deleteUser(id);
+				$scope.deleteUser(id);
 			}else{
 			
 			}

@@ -20,6 +20,10 @@
 					toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 				});
 			}
+			$scope.name="";
+			$scope.email="";
+			$scope.password="";
+			$scope.confirmPassword="";
 		}
 		$scope.cancel=function()
 		{
