@@ -14,3 +14,4 @@ app.run(['$rootScope', '$location', function ($rootScope, $location) {
         }
     });
 }]);
+window.onabort = function () { localStorage.removeItem("Token"); }

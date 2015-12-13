@@ -21,4 +21,3 @@ app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope',funct
     }
 }]);
 })()
-window.onbeforeunload = function () { localStorage.removeItem("Token"); }

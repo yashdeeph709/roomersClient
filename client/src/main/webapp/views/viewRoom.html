@@ -23,8 +23,8 @@
 			<td>Screen</td>
 			<td>Actions</td>
 		</tr>
-				
-		<tr data-ng-repeat="room in rooms|filter:filter">
+		<!-- Todo:filter is filtering data on that value only not anyother value -->
+		<tr data-ng-repeat="room in rooms|filter:filter.roomCapacity">
 			<td>{{$index+1}}</td>
 			<td>{{room.roomName}}</td>
 			<td>{{room.roomCity}}</td>

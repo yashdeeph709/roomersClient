@@ -26,7 +26,7 @@
 			}
 		}
 
-
+		
 		$scope.deleteRoom=function(name){
 			$http.delete(SERVER_ADDRESS+"rooms/"+name).success(function(data){
 				toaster.pop('success', "Message", '<h5> Room Deleted Successfully!</h5>', 3000, 'trustedHtml');
