@@ -1,8 +1,11 @@
 .day{
-    background-color: red;
-    width:14.285714285714285714285714285714%;
 }
 .hour{
     background-color: #234234;
     padding:50px;
+}
+.resize{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 24px;
 }

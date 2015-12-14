@@ -10,13 +10,12 @@
 				$scope.deleteUser(id);
 			});
 		}
-
 		$scope.deleteUser=function(id){
 			$http.delete(SERVER_ADDRESS+"users/"+id).success(function(data){
-				toaster.pop('warning', "Message", '<h5>User Deleted Successfully!</h5>', 2000, 'trustedHtml');
-			}).success(function(){
+				toaster.pop('success', "Message", '<h5>User Deleted Successfully!</h5>', 2000, 'trustedHtml');
 				refresh();
-			}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
+			}).error(function(data){
+				toaster.pop('error', "Message", '<h5> Server Error!</h5>', 2000, 'trustedHtml');
 			});;
 		}
 		function refresh(){

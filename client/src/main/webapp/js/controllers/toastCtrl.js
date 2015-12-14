@@ -4,6 +4,7 @@
 		this.ok=function(){
 			$rootScope.$emit("ok");
 			console.log("ok called");
+			
 		}
 		this.cancel=function(){
 			$rootScope.$emit("cancel");

@@ -19,5 +19,6 @@ app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope',funct
         localStorage.removeItem("Token");
         $state.go("home");
     }
+    
 }]);
 })()

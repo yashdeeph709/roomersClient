@@ -1,29 +1,21 @@
 (function(){
 	var app=angular.module("RoomModule")
 	
-	app.controller('viewRoomCtrl',['$scope','$http','SERVER_ADDRESS','$state','toaster',function($scope,$http,SERVER_ADDRESS,$state,toaster){
+	app.controller('viewRoomCtrl',['$scope','$http','SERVER_ADDRESS','$state','toaster','$rootScope',function($scope,$http,SERVER_ADDRESS,$state,toaster,$rootScope){
 		$http.get(SERVER_ADDRESS+"rooms").success(function(data){
 			$scope.rooms=data;
-		}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+		}).error(function(data){
+			toaster.pop('error', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 		});;
 		$scope.editRoom=function(id){
 			$state.go("profileAdmin.updateRoom",{"id":id});
 		}
 		$scope.confirm=function(id){
-			toaster.pop({
-	            title: 'A toast',
-	            body: '<button onclick="ok()"></button><button onclick="cancel()"></button>',
-	            onHideCallback: function () { 
-	                toaster.pop({
-	                    title: 'A toast',
-	                    body: 'invoked as a callback'
-	                });
-	            },
-	            bodyOutputType: 'trustedHtml'
-	         });
-			if(confirm("do you want to delete this user")==true){
-			//	$scope.deleteRoom(id);
-			}
+			toaster.pop("warning","Message","views/toast.html",2000,'template');
+			$rootScope.$on('ok', function (event, data) {
+				console.log("I got the event");
+				$scope.deleteRoom(id);
+			});
 		}
 
 		

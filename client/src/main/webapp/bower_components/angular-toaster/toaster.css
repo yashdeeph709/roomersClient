@@ -177,7 +177,7 @@ button.toast-close-button {
   background-color: #2f96b4;
 }
 .toast-warning {
-  background-color: #f89406;
+  background-color: #f89000;
 }
 /*Responsive Design*/
 @media all and (max-width: 240px) {
