@@ -28,6 +28,7 @@
 <script src="js\controllers\adminProfileCtrl.js"></script>
 <script src="js\controllers\mainCtrl.js"></script>
 <script src="js\controllers\profileCtrl.js"></script>
+<script src="js\controllers\toastCtrl.js"></script>
 </head>
 
 <body data-ng-controller="mainCtrl" style="font-family: 'Montserrat', sans-serif;">
@@ -41,8 +42,7 @@
 				<div data-ui-view class="animate" ></div>
 			</div>
 		</div>
-<toaster-container toaster-options="{'closeButton': true,'position-class': 'toast-top-center'}"></toaster-container>
-
+		<toaster-container toaster-options="{'closeButton': true,'position-class': 'toast-top-center'}"></toaster-container>
 	</div>
 </body>
 
