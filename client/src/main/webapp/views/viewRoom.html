@@ -1,13 +1,21 @@
-<div class="panel panel-info" data-ng-controller="viewRoomCtrl as view">
+<div class="panel panel-info" data-ng-controller="viewRoomCtrl">
 	<div class="panel-heading">
 	View Rooms
 	</div>
 	<div class="panel-body">
 	<div class="form-group">
-		<input  type="text" class="input-sm" placeholder="Enter Room Capacity" data-ng-model="filter.roomCapacity">
-		<input  type="text" class="input-sm" placeholder="Enter Room machines" data-ng-model="filter.roomMachines">
-		<input  type="text" class="input-sm" placeholder="Enter Room tables" data-ng-model="filter.roomTables">
-		<input  type="text" class="input-sm" placeholder="Enter Room screen" data-ng-model="filter.roomScreen">
+		<select class="input-sm" ng-model="filter.roomCapacity" placeholder="Capacity">
+			<option ng-repeat="capacity in capacities">{{capacity}}</option>
+		</select>
+		<select class="input-sm" ng-model="filter.roomMachines">
+			<option ng-repeat="machine in machines">{{machine}}</option>
+		</select>
+		<select class="input-sm" ng-model="filter.roomTables">
+			<option ng-repeat="table in tables">{{table}}</option>
+		</select>
+		<select class="input-sm" ng-model="filter.roomScreen">
+			<option ng-repeat="screen in screens">{{screen}}</option>
+		</select>
 		<button type="button" class="btn btn-info" title="Search for a Room"><i class="fa fa-search"></i></button>
 	</div>
 
@@ -25,7 +33,7 @@
 			<td>Actions</td>
 		</tr>
 		<!-- Todo:filter is filtering data on that value only not anyother value -->
-		<tr data-ng-repeat="room in rooms|filter:filter.roomCapacity|filter:filter.roomTables|filter:filter.roomMachines|filter:filter.roomTables|filter:filter.roomScreen">
+		<tr data-ng-repeat="room in rooms">
 			<td>{{$index+1+range}}</td>
 			<td>{{room.roomName}}</td>
 			<td>{{room.roomCity}}</td>

@@ -1,143 +1,123 @@
-<div data-ng-controller="updateRoomCtrl">
-<form class="form-horizontal" name="updateRoomFacilities" novalidate>
-<fieldset>
-
-<legend>Enter Room Details</legend>
-<div class="form-group">
-  <label class="col-md-4 control-label">Room Name: </label>  
-  <div class="col-md-4">
-  <p><input type="text" name="roomName" data-ng-model="roomName"  class="form-control input-md " ng-readonly="true"/>
- </div>
+<div class="panel panel-info" data-ng-controller="updateRoomCtrl">
+<div class="panel-heading">Update Room:{{roomName}}</div>
+<div class="panel-body">    <form class="form-horizontal" name="updateRoomFacilities" novalidate>
+      <fieldset>
+        <legend>Enter Room Details</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Room Name: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomName" data-ng-model="roomName"  class="form-control input-md " ng-readonly="true"/>
+          </div>
+        </div>
+        <legend>Venue Details</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter City: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomCity" data-ng-model="roomCity"  class="form-control input-md" ng-readonly="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Location: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomLocation" data-ng-model="roomLocation" class="form-control input-md" ng-readonly="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Block: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomBlock" data-ng-model="roomBlock"  class="form-control input-md" ng-readonly="true"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Address: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomAddress" data-ng-model="roomAddress"  class="form-control input-md" ng-readonly="true"/>
+          </div>
+        </div>
+        <legend>Facilities</legend>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Room Capacity: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required class="form-control input-md" ng-readwrite="true"/>
+            <span style="color:red" data-ng-show="updateRoom.roomCapacity.$dirty && updateRoom.roomCapacity.$invalid">
+              <span data-ng-show="updateRoom.roomCapacity.$error.required">Capacity is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Tables: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomTables.$dirty && updateRoom.roomTables.$invalid">
+              <span data-ng-show="updateRoom.roomTables.$error.required">Table count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Machines: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomMachines.$dirty && updateRoom.roomMachines.$invalid">
+              <span data-ng-show="updateRoom.roomMachines.$error.required">Machine count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Board: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomBoard.$dirty && updateRoom.roomBoard.$invalid">
+              <span data-ng-show="updateRoom.roomBoard.$error.required">Board count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Charts: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomChart.$dirty && updateRoom.roomChart.$invalid">
+              <span data-ng-show="updateRoom.roomChart.$error.required">Chart count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Screens: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomScreen.$dirty && updateRoom.roomScreen.$invalid">
+              <span data-ng-show="updateRoom.roomScreen.$error.required">Screen count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Projectors: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="updateRoom.roomProjector.$dirty && updateRoom.roomProjector.$invalid">
+              <span data-ng-show="updateRoom.roomProjector.$error.required">Projector count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Internet Connection:</label>
+          <div class="col-md-4">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="roomInternet" value="1" data-ng-model="roomInternet" value="false" >
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button  data-ng-click="updateRoom()" data-ng-disabled="" value="UpdateRoom" class="btn btn-primary">Update Room</button>
+          </div>
+          <div class="col-md-4">
+            <button value="Reset" class="btn btn-primary">Reset</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
 </div>
-
-<legend>Venue Details</legend>
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter City: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomCity" data-ng-model="roomCity"  class="form-control input-md" ng-readonly="true"/>
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Location: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomLocation" data-ng-model="roomLocation" class="form-control input-md" ng-readonly="true"/>
-
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Block: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomBlock" data-ng-model="roomBlock"  class="form-control input-md" ng-readonly="true"/>
-
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Address: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomAddress" data-ng-model="roomAddress"  class="form-control input-md" ng-readonly="true"/>
-</div>
-</div>
-
-<legend>Facilities</legend>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Room Capacity: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required class="form-control input-md" ng-readwrite="true"/>
-<span style="color:red" data-ng-show="updateRoom.roomCapacity.$dirty && updateRoom.roomCapacity.$invalid">
-  <span data-ng-show="updateRoom.roomCapacity.$error.required">Capacity is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Tables: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomTables.$dirty && updateRoom.roomTables.$invalid">
-  <span data-ng-show="updateRoom.roomTables.$error.required">Table count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Machines: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomMachines.$dirty && updateRoom.roomMachines.$invalid">
-  <span data-ng-show="updateRoom.roomMachines.$error.required">Machine count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Board: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomBoard.$dirty && updateRoom.roomBoard.$invalid">
-  <span data-ng-show="updateRoom.roomBoard.$error.required">Board count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Charts: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomChart.$dirty && updateRoom.roomChart.$invalid">
-  <span data-ng-show="updateRoom.roomChart.$error.required">Chart count is required.</span>
-</span>
-</div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Screens: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomScreen.$dirty && updateRoom.roomScreen.$invalid">
-  <span data-ng-show="updateRoom.roomScreen.$error.required">Screen count is required.</span>
- </span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Projectors: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" class="form-control input-md"/>
-<span style="color:red" data-ng-show="updateRoom.roomProjector.$dirty && updateRoom.roomProjector.$invalid">
-  <span data-ng-show="updateRoom.roomProjector.$error.required">Projector count is required.</span>
- </span>
-</div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Internet Connection:</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" name="roomInternet" value="1" data-ng-model="roomInternet" value="false" >
-    </label>
-	</div>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-
-  <div class="col-md-4">
-    <button  data-ng-click="updateRoom()" data-ng-disabled="" value="UpdateRoom" class="btn btn-primary">Update Room</button>
-  </div>
-  <div class="col-md-4">
-    <button value="Reset" class="btn btn-primary">Reset</button>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
-
-</div>
+<div>

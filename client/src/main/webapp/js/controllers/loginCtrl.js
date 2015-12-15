@@ -4,15 +4,15 @@
 		$scope.login=function(){
 			$http.post(SERVER_ADDRESS+"login",{email:$scope.email,password:$scope.password})
 			.success(function(data){
-					if(data.rights===0){
+					localStorage.setItem("Token",JSON.stringify(data));
+					switch(data.rights){
+						case 0:
 						$state.go("profileAdmin.displayUsers");
-					}else{
-						if(data.rights===1){
-							$state.go("profileAdmin.displayUsers");
-						}else{
-							$state.go("profileUser.checkAvailableRooms");
-						}
-					}				
+						break;
+						case 2:
+						$state.go("profileUser.checkAvailableRooms");
+						break;
+					}
 			}).error(function(data,error){
 				if(error==401){
 				       toaster.pop('warning', "Message", '<h5>username and password incorrect</h5>', 2000, 'trustedHtml');

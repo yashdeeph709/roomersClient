@@ -4,6 +4,11 @@
 	app.controller('viewRoomCtrl',['$scope','$http','SERVER_ADDRESS','$state','toaster','$rootScope',function($scope,$http,SERVER_ADDRESS,$state,toaster,$rootScope){
 		$scope.range=parseInt(0);
 		refresh();
+		$scope.tables=[0,1,2,3,4,5,6,7,8,9];
+		$scope.machines=[0,1,2,3,4,5,6,7,8,9];
+		$scope.screens=[0,1,2,3,4,5,6,7,8,9];
+		$scope.capacities=[0,1,2,3,4,5,6,7,8,9];
+
 		$scope.editRoom=function(id){
 			$state.go("profileAdmin.updateRoom",{"id":id});
 		}

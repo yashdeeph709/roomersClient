@@ -5,11 +5,16 @@ app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope','$sta
 		$scope.username=JSON.parse(localStorage.getItem("Token")).name;
 	}
     $scope.isAuthenticated=function(){
+    	return localStorage.getItem("Token")?true:false;
     }
     $scope.logout=function(){
-        Auth.logout();
-        $state.go("home");
+        console.log(":Logout")
+        localStorage.removeItem("Token");
     }
-  
+    $scope.$watch($scope.isAuthenticated, function (value, oldValue) {
+        if(!value && oldValue) {
+          $state.go('home');
+        }
+    }, true);
 }]);
 })()
