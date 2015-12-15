@@ -7,7 +7,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Name:</label>  
   <div class="col-md-4">
-  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" required>
+  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" ng-change="checkAvailability()" required>
   <span style="color:red" data-ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
   <span data-ng-show="RegistrationForm.name.$error.required">Username is required.</span>
    </span> 

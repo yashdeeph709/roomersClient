@@ -3,7 +3,7 @@
     <div class="form-group">
       <div class="col-md-1">
         <label>Internet</label>
-        <input type="checkbox" name="internet"/>
+        <input type="checkbox" name="internet"  data-ng-model="internet"/>
       </div>
     <div class="col-md-1">
         <label>Projector</label>
@@ -35,8 +35,8 @@
   </div>
   <div class="form-group">
     <div class="col-md-2">
-      <select class="form-control">
-        <option ng-repeat="room in rooms">{{room.roomName}}</option>
+      <select class="form-control" ng-model="roomid">
+        <option ng-repeat="room in rooms | filter:projector|filter:capacity|filter:screen|filter:board|filter:internet" ng-value="room.id">{{room.roomName}}</option>
       </select>
     </div>
   </div>

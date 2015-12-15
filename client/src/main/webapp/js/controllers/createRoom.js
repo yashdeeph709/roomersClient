@@ -8,7 +8,7 @@
 	 	  }
 	 	  var request = {
 	 					method: 'POST',
-	 					url: SERVER_ADDRESS+'rooms',
+	 					url: SERVER_ADDRESS+'room',
 	 					data:{
 	 						roomName: $scope.roomName,
 	 						roomCity: $scope.roomCity,
@@ -26,9 +26,9 @@
 	 					}
 					}
 			$http.post(request.url,request.data)
-			.success(function(data){toaster.pop('success', "Message", '<h5>'+$scope.roomName+' Room Created Successfully!</h5>', 1000, 'trustedHtml');
+			.success(function(data){toaster.pop('warning', "Message", '<h5>'+$scope.roomName+' Room Created Successfully!</h5>', 1000, 'trustedHtml');
 			})
-			.error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
+			.error(function(data){toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});
 	 	  	$scope.roomName="";
 			$scope.roomCity="";
@@ -44,5 +44,8 @@
 			$scope.roomProjector="";
 			$scope.roomInternet="";
 	      };
+	      $scope.show=function(){
+	      		console.log("To do room name availability");
+	      }
 	}]);
 })();

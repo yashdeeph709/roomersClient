@@ -16,9 +16,9 @@
 					}				
 			}).error(function(data,error){
 				if(error==401){
-				       toaster.pop('warning', "Message", '<h5>username and password incorrect</h5>', 1000, 'trustedHtml');
+				       toaster.pop('warning', "Message", '<h5>username and password incorrect</h5>', 2000, 'trustedHtml');
 				}else{
-				       toaster.pop('error', "Message", '<h5>Server Error</h5>', 1000, 'trustedHtml');
+				       toaster.pop('warning', "Message", '<h5>Server Error</h5>', 2000, 'trustedHtml');
 				}
 			});
 		}

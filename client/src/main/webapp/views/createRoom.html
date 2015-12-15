@@ -1,162 +1,148 @@
 <div class="panel panel-info" data-ng-controller="createRoomCtrl">
-<div class="panel-heading">Create Room</div>
-<div class="panel-body">
-<form class="form-horizontal" name="CreateRoom" novalidate>
-<fieldset>
-
-<h5>Enter Room Details</h5>
-<hr>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Room Name: </label>  
-  <div class="col-md-4">
-  <p><input type="text" name="roomName" data-ng-model="roomName" data-ng-change="show()" required  placeholder="Enter Room Name" class="form-control input-md"/><span data-ng-show="avail" style="color:red">&#x2717</span></p>
-	<span style="color:red" data-ng-show="CreateRoom.roomName.$dirty && CreateRoom.roomName.$invalid">
-  		<span data-ng-show="CreateRoom.roomName.$error.required">Name is required.</span>
-	</span>
- </div>
-</div>
-
-<h5>Venue Details</h5>
-<hr>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter City: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomCity" data-ng-model="roomCity" required placeholder="Enter City Name" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomCity.$dirty && CreateRoom.roomCity.$invalid">
-  <span data-ng-show="CreateRoom.roomCity.$error.required">City is required.</span>
-</span>
+  <div class="panel-heading">Create Room</div>
+  <div class="panel-body">
+    <form class="form-horizontal" name="CreateRoom" novalidate>
+      <fieldset>
+        <h5 style="font-family: 'Montserrat'">Enter Room Details</h5>
+        <hr>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Room Name*: </label>
+          <div class="col-md-4">
+            <p>
+              <input type="text" name="roomName" data-ng-model="roomName" data-ng-change="show()" required ng-pattern="/^[a-zA-Z]+$/"
+              placeholder="Enter Room Name" class="form-control input-md"/>
+            </p>
+            <span data-ng-show="avail" style="color:red">&#x2717</span>
+            <span style="color:red" data-ng-show="CreateRoom.roomName.$dirty && CreateRoom.roomName.$invalid">
+              <span data-ng-show="CreateRoom.roomName.$error.required">Name is required.</span>
+              <span data-ng-show="CreateRoom.roomName.$error.pattern">Name should be series of characters</span>
+            </span>
+          </div>
+        </div>
+        <h5 style="font-family: 'Montserrat'">Venue Details</h5>
+        <hr>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter City*: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomCity" data-ng-model="roomCity" required placeholder="Enter City Name" ng-pattern="/^[a-zA-Z]+$/" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomCity.$dirty && CreateRoom.roomCity.$invalid">
+              <span data-ng-show="CreateRoom.roomCity.$error.required">City is required.</span>
+              <span data-ng-show="CreateRoom.roomCity.$error.pattern">Name should be series of characters</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Location*: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomLocation" data-ng-model="roomLocation" required ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter Location" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomLocation.$dirty && CreateRoom.roomLocation.$invalid">
+              <span data-ng-show="CreateRoom.roomLocation.$error.required">Location is required.</span>
+              <span data-ng-show="CreateRoom.roomLocation.$error.pattern">Name should be series of characters</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Block*: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomBlock" data-ng-model="roomBlock" required  ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter Block" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomBlock.$dirty && CreateRoom.roomBlock.$invalid">
+              <span data-ng-show="CreateRoom.roomBlock.$error.required">Block is required.</span>
+              <span data-ng-show="CreateRoom.roomBlock.$error.pattern">Name should be series of characters</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Address: </label>
+          <div class="col-md-4">
+            <input type="text" name="roomAddress" data-ng-model="roomAddress" required ng-pattern="/^[a-zA-Z]+$/" placeholder="Enter Address" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomAddress.$dirty && CreateRoom.roomAddress.$invalid">
+              <span data-ng-show="CreateRoom.roomAddress.$error.required">Address is required.</span>
+              <span data-ng-show="CreateRoom.roomAddress.$error.pattern">Name should be series of characters</span>
+            </span>
+          </div>
+        </div>
+        <h5 style="font-family: 'Montserrat'">Facilities</h5>
+        <hr>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter Room Capacity: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required placeholder="Enter Capacity" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomCapacity.$dirty && CreateRoom.roomCapacity.$invalid">
+              <span data-ng-show="CreateRoom.roomCapacity.$error.required">Capacity is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Tables: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomTables.$dirty && CreateRoom.roomTables.$invalid">
+              <span data-ng-show="CreateRoom.roomTables.$error.required">Table count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Machines: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomMachines.$dirty && CreateRoom.roomMachines.$invalid">
+              <span data-ng-show="CreateRoom.roomMachines.$error.required">Machine count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Board: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomBoard.$dirty && CreateRoom.roomBoard.$invalid">
+              <span data-ng-show="CreateRoom.roomBoard.$error.required">Board count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Charts: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomChart.$dirty && CreateRoom.roomChart.$invalid">
+              <span data-ng-show="CreateRoom.roomChart.$error.required">Chart count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Screens: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomScreen.$dirty && CreateRoom.roomScreen.$invalid">
+              <span data-ng-show="CreateRoom.roomScreen.$error.required">Screen count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Enter No. Of Projectors: </label>
+          <div class="col-md-4">
+            <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" min="0" max="1000" class="form-control input-md"/>
+            <span style="color:red" data-ng-show="CreateRoom.roomProjector.$dirty && CreateRoom.roomProjector.$invalid">
+              <span data-ng-show="CreateRoom.roomProjector.$error.required">Projector count is required.</span>
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label">Internet Connection:</label>
+          <div class="col-md-4">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="roomInternet" value="1" data-ng-model="roomInternet" value="false" >
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button  data-ng-click="createRoom()" data-ng-disabled="CreateRoom.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
+            <input type="reset" class="btn btn-primary"/>
+          </div>
+        </div>
+      </fieldset>
+    </form>
   </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Location: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomLocation" data-ng-model="roomLocation" required placeholder="Enter Location" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomLocation.$dirty && CreateRoom.roomLocation.$invalid">
-  <span data-ng-show="CreateRoom.roomLocation.$error.required">Location is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Block: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomBlock" data-ng-model="roomBlock" required placeholder="Enter Block" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomBlock.$dirty && CreateRoom.roomBlock.$invalid">
-  <span data-ng-show="CreateRoom.roomBlock.$error.required">Block is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Address: </label>  
-  <div class="col-md-4">
-  <input type="text" name="roomAddress" data-ng-model="roomAddress" required placeholder="Enter Address" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomAddress.$dirty && CreateRoom.roomAddress.$invalid">
-  <span data-ng-show="CreateRoom.roomAddress.$error.required">Address is required.</span>
-</span>
-</div>
-</div>
-
-<h5>Facilities</h5>
-<hr>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter Room Capacity: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomCapacity" data-ng-model="roomCapacity" required placeholder="Enter Capacity" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomCapacity.$dirty && CreateRoom.roomCapacity.$invalid">
-  <span data-ng-show="CreateRoom.roomCapacity.$error.required">Capacity is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Tables: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomTables" data-ng-model="roomTables" required placeholder="Enter Tables" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomTables.$dirty && CreateRoom.roomTables.$invalid">
-  <span data-ng-show="CreateRoom.roomTables.$error.required">Table count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Machines: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomMachines" data-ng-model="roomMachines" required placeholder="Enter Machines" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomMachines.$dirty && CreateRoom.roomMachines.$invalid">
-  <span data-ng-show="CreateRoom.roomMachines.$error.required">Machine count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Board: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomBoard" data-ng-model="roomBoard" required placeholder="Enter Boards" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomBoard.$dirty && CreateRoom.roomBoard.$invalid">
-  <span data-ng-show="CreateRoom.roomBoard.$error.required">Board count is required.</span>
-</span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Charts: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomChart" data-ng-model="roomChart" required placeholder="Enter Charts" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomChart.$dirty && CreateRoom.roomChart.$invalid">
-  <span data-ng-show="CreateRoom.roomChart.$error.required">Chart count is required.</span>
-</span>
-</div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Screens: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomScreen" data-ng-model="roomScreen" required placeholder="Enter Screens" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomScreen.$dirty && CreateRoom.roomScreen.$invalid">
-  <span data-ng-show="CreateRoom.roomScreen.$error.required">Screen count is required.</span>
- </span>
-</div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label">Enter No. Of Projectors: </label>  
-  <div class="col-md-4">
-  <input type="number" name="roomProjector" data-ng-model="roomProjector" required placeholder="Enter Projectors" min="1" max="1000" class="form-control input-md"/>
-<span style="color:red" data-ng-show="CreateRoom.roomProjector.$dirty && CreateRoom.roomProjector.$invalid">
-  <span data-ng-show="CreateRoom.roomProjector.$error.required">Projector count is required.</span>
- </span>
-</div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label">Internet Connection:</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" name="roomInternet" value="1" data-ng-model="roomInternet" value="false" >
-    </label>
-	</div>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-
-  <div class="col-md-4">
-    <button  data-ng-click="createRoom()" data-ng-disabled="CreateRoom.$invalid" value="Add Room" class="btn btn-primary">Add Room</button>
-    <input type="reset" class="btn btn-primary"/>
-  </div>
-</div>
-
-
-</fieldset>
-</form>
-
-</div>

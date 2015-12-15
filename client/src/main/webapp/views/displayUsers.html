@@ -24,5 +24,13 @@
 			<button class="btn btn-info" data-ng-click="makeAdmin(user.id)" accesskey="a"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></button></td>
 		</tr>
 	</table>
+		<div class="col-md-offset-5">
+		<div class="btn-group">
+          <a class="btn btn-default" ng-click="previous()" ng-show="range!=0"><i class="fa fa-arrow-left"></i></a>
+   		  <a class="btn btn-default">{{range}}</a>
+          <a class="btn btn-default" ng-click="next()"><i class="fa fa-arrow-right"></i></a>
+        </div>
+	</div>
+
 	</div>
 </div>

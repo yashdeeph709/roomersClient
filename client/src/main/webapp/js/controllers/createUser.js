@@ -8,10 +8,10 @@
 				toaster.pop('warning', "Message", '<h5>Password Mismatched!</h5>', 1000, 'trustedHtml');
 			}else{
 				var params={	name:$scope.name,  	email:$scope.email, password: $scope.password };
-				$http.post(SERVER_ADDRESS+"users",params).success(function(data,config){
+				$http.post(SERVER_ADDRESS+"user",params).success(function(data,config){
 					console.log(data);
 					if(config==201){
-						toaster.pop('success', "Message", '<h5>New User Create with name'+params.name+'!</h5>', 1000, 'trustedHtml');
+						toaster.pop('warning', "Message", '<h5>New User Create with name'+params.name+'!</h5>', 1000, 'trustedHtml');
 					}else{
 						toaster.pop('warning', "Message", '<h5>User Already Exists!</h5>', 1000, 'trustedHtml');				
 					}
@@ -27,8 +27,12 @@
 		}
 		$scope.cancel=function()
 		{
-			toaster.pop('error', "Message", '<h5>User Creation Cancelled!</h5>', 1000, 'trustedHtml');
+			toaster.pop('warning', "Message", '<h5>User Creation Cancelled!</h5>', 1000, 'trustedHtml');
 			$state.go("profileAdmin.displayUsers");
+		}
+		$scope.checkAvailability=function(){
+			$http.get(SERVER_ADDRESS+'/')
+			console.log($scope.name);
 		}
 	}]);
 })();

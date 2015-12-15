@@ -13,8 +13,6 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav pull-right">
 						<li class="active" ng-show="isAuthenticated()"><a data-ui-sref="profileAdmin.displayUsers"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-						<li ng-hide="isAuthenticated()"><a>About Us</a></li>
-						<li ng-hide="isAuthenticated()"><a>Contact Us</a></li>
 						<li ng-show="isAuthenticated()"><a >Welcome {{username}}</a></li>
 						<li ng-show="isAuthenticated()"><a ng-click="logout()"><i class="glyphicon glyphicon-user"></i> Logout</a></li>
 					</ul>

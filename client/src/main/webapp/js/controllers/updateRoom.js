@@ -18,7 +18,7 @@
 				$scope.roomChart=parseInt(data.roomChart);
 				$scope.roomProjector=parseInt(data.roomProjector);
 				$scope.roomInternet=parseInt(data.roomInternet);
-	}).error(function(data){toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
+	}).error(function(data){toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});;
 		
 	$scope.updateRoom= function() {
@@ -41,8 +41,8 @@
 	 					}
 					}
 			$http.put(request.url,request.data)
-			.success(function(data){toaster.pop('success', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 1000, 'trustedHtml');})
-			.error(function(data){toaster.pop('error', "Message", '<h5>Server Error </h5>', 1000, 'trustedHtml');});
+			.success(function(data){toaster.pop('warning', "Message", '<h5>'+data.message+' Room Updated Successfully!</h5>', 1000, 'trustedHtml');})
+			.error(function(data){toaster.pop('warning', "Message", '<h5>Server Error </h5>', 1000, 'trustedHtml');});
 	    };
 	    
 	    
