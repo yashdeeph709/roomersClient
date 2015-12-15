@@ -16,7 +16,7 @@
 			<td>Actions</td>
 		</tr>
 		<tr data-ng-repeat="user in users|filter:text">
-			<td>{{$index+1}}</td>
+			<td>{{$index+1+range}}</td>
 			<td>{{user.name}}</td>
 			<td>{{user.rights===1?"Sub Admin":"Normal User"}}</td>
 			<td>{{user.email}}</td>

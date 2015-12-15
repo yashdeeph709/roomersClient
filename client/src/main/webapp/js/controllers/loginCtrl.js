@@ -4,7 +4,6 @@
 		$scope.login=function(){
 			$http.post(SERVER_ADDRESS+"login",{email:$scope.email,password:$scope.password})
 			.success(function(data){
-					localStorage.setItem("Token",JSON.stringify(data));
 					if(data.rights===0){
 						$state.go("profileAdmin.displayUsers");
 					}else{

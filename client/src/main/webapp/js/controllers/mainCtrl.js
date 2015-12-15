@@ -1,15 +1,15 @@
 (function(){
 var app=angular.module("RoomApp");
-app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope',function($scope,$state,toaster,$log,$rootScope){
+app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope','$state',function($scope,$state,toaster,$log,$rootScope,$state){
 	if(localStorage.getItem("Token")){
 		$scope.username=JSON.parse(localStorage.getItem("Token")).name;
 	}
     $scope.isAuthenticated=function(){
-        return localStorage.getItem("Token")!=null?true:false;   
     }
     $scope.logout=function(){
-        localStorage.removeItem("Token");
+        Auth.logout();
         $state.go("home");
     }
+  
 }]);
 })()
