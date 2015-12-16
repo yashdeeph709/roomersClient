@@ -9,6 +9,9 @@
 						case 0:
 						$state.go("profileAdmin.displayUsers");
 						break;
+						case 1:
+						$state.go("profileUser.checkAvailableRooms");
+						break;
 						case 2:
 						$state.go("profileUser.checkAvailableRooms");
 						break;

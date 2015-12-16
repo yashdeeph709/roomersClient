@@ -1,7 +1,11 @@
 (function(){
 	var app=angular.module("UserModule");
-	app.controller("profileCtrl",function(){
-		
+	app.controller("profileCtrl",function($scope){
+		$scope.isSubAdmin=function(){
+			var user=JSON.parse(localStorage.getItem('Token'));
+			console.log("isSubAdmin")
+			console.log(user.rights!=1?false:true);
+			return user.rights!=1?false:true;
+		}	
 	});
-	
 })();
