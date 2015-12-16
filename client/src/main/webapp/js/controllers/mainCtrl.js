@@ -4,7 +4,11 @@ app.controller('mainCtrl',['$scope','$state','toaster','$log','$rootScope','$sta
 	if(localStorage.getItem("Token")){
 		$scope.username=JSON.parse(localStorage.getItem("Token")).name;
 	}
+    
     $scope.isAuthenticated=function(){
+    if(localStorage.getItem("Token")){
+        $scope.username=JSON.parse(localStorage.getItem("Token")).name;
+    }
     	return localStorage.getItem("Token")?true:false;
     }
     $scope.logout=function(){

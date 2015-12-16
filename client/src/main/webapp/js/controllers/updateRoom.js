@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('updateRoomCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
+	app.controller('updateRoomCtrl',['$scope','$state','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$state,$http,SERVER_ADDRESS,$stateParams,toaster) {
 		
 	$http.get(SERVER_ADDRESS+"room/"+$stateParams.id)
 	.success(function(data){
@@ -43,8 +43,10 @@
 	 					}
 					}
 			$http.put(request.url,request.data)
-			.success(function(data){toaster.pop('warning', "Message", '<h5> Room Updated Successfully!</h5>', 1000, 'trustedHtml');})
-			.error(function(data){toaster.pop('warning', "Message", '<h5>Server Error </h5>', 1000, 'trustedHtml');});
+			.success(function(data){
+				toaster.pop('warning', "Message", '<h5> Room Updated Successfully!</h5>', 1000, 'trustedHtml');
+			})
+			$state.go("profileAdmin.viewRoom")
 	    };
 	    
 	    
