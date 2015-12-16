@@ -45,6 +45,10 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		url:'/showBookings',
 		templateUrl:'views/showBookings.html'
 	});
+	$stateProvider.state('profileUser.requestRoom',{
+		url:'/booking:id',
+		templateUrl:'views/BookingRequest.html'
+	});
 
 
 	$httpProvider.interceptors.push('authInterceptor');
