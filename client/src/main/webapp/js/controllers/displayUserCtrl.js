@@ -32,7 +32,7 @@
 
 		function refresh(){
 			console.log("refresh called and request fired!");
-			$http.get(SERVER_ADDRESS+"user/"+$scope.range+"/2").success(function(data){
+			$http.get(SERVER_ADDRESS+"user/"+$scope.range+"/10").success(function(data){
 				$scope.users=data;
 			}).error(function(data){
 				console.log(data);

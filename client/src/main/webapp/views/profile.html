@@ -1,5 +1,11 @@
 <div ng-controller="profileCtrl">
-	<div class="col-md-12">
+	<div class="col-md-3">
+		<ul class="list-group">
+		  <li class="list-group-item"><a ui-sref="profileUser.showBookings">My Bookings</a></li>
+		  <li class="list-group-item"><a ui-sref="profileUser.checkAvailableRooms">Check Rooms Availability </a></li>
+		</ul>
+	</div>
+	<div class="col-md-9">
 		<div ui-view class="slide"></div>
 	</div>
 </div>

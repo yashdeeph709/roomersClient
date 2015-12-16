@@ -1,0 +1,47 @@
+<div class="panel panel-info" ng-controller="showBookingsCtrl">
+	<div class="panel-heading">
+	View Rooms
+	</div>
+	<div class="panel-body">
+	<table class="table table-striped">
+		<tr>
+			<td>S.No.</td>
+			<td>Name</td>
+			<td>City</td>
+			<td>Capacity</td>
+			<td>Machines</td>
+			<td>Tables</td>
+			<td>Projector</td>
+			<td>Ethernet</td>
+			<td>Screen</td>
+			<td>Actions</td>
+		</tr>
+		<!-- Todo:filter is filtering data on that value only not anyother value -->
+		<tr data-ng-repeat="room in rooms">
+			<td>{{$index+1+range}}</td>
+			<td>{{room.roomName}}</td>
+			<td>{{room.roomCity}}</td>
+			<td>{{room.roomCapacity}}</td>
+			<td>{{room.roomMachines}}</td>
+			<td>{{room.roomTables}}</td>
+			<td>{{room.roomProjector}}</td>
+			<td>{{room.roomInternet}}</td>
+			<td>{{room.roomScreen}}</td>
+			<td>
+			<button class="btn btn-info" title="Delete {{room.roomName}}" data-ng-click="confirm(room.id)" accesskey="d">
+			 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			 <button class="btn btn-info" title="Update {{room.roomName}}" data-ng-click="editRoom(room.id)" accesskey="d">
+			 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+			</td>
+		</tr>
+	</table>
+
+	<div class="col-md-offset-5">
+		<div class="btn-group">
+          <a class="btn btn-default" ng-click="previous()" ng-show="range!=0"><i class="fa fa-arrow-left"></i></a>
+   		  <a class="btn btn-default">{{range}}</a>
+          <a class="btn btn-default" ng-click="next()"><i class="fa fa-arrow-right"></i></a>
+        </div>
+	</div>
+</div>
+</div>
