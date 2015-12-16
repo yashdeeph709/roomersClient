@@ -1,7 +1,7 @@
 (function(){
 	var app=angular.module("RoomModule");
 
-	app.controller('createRoomCtrl',['$scope','$http','SERVER_ADDRESS','toaster',function($scope,$http,SERVER_ADDRESS,toaster) {
+	app.controller('createRoomCtrl',['$scope','$http','SERVER_ADDRESS','toaster','$state',function($scope,$http,SERVER_ADDRESS,toaster,$state) {
 	  $scope.createRoom= function() {
 	 	  if($scope.roomInternet==null){
 			  $scope.roomInternet = "false";
@@ -27,10 +27,11 @@
 					}
 			$http.post(request.url,request.data)
 			.success(function(data){toaster.pop('warning', "Message", '<h5>'+$scope.roomName+' Room Created Successfully!</h5>', 1000, 'trustedHtml');
+				$state.go("profileAdmin.viewRoom");
 			})
 			.error(function(data){toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 			});
-	 	  	$scope.roomName="";
+/*	 	  	$scope.roomName="";
 			$scope.roomCity="";
 			$scope.roomLocation="";
 			$scope.roomBlock="";
@@ -43,7 +44,7 @@
 			$scope.roomChart="";
 			$scope.roomProjector="";
 			$scope.roomInternet="";
-	      };
+*/	      };
 	      $scope.show=function(){
 	      		console.log("To do room name availability");
 	      }

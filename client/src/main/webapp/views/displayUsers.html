@@ -3,18 +3,18 @@
 	Display of All users
 	</div>
 	<div class="panel-body">
-
 	<div class="form-group col-md-4">
 	<input class="form-control input-md" type="text" placeholder="Enter Users Name" data-ng-model="name">
 	</div>
 	<div class="form-group  col-md-4">
-	<select ng-model="rights" class="form-control">
-		<option ng-value="1" selected>SubAdmin</option>
-		<option ng-value="2">Normal User</option>
-	</select>
+	<input class="form-control input-md" type="text" placeholder="Enter Email Id" data-ng-model="email">
 	</div>
 	<div class="form-group  col-md-4">
-	<input class="form-control input-md" type="text" placeholder="Enter Email Id" data-ng-model="email">
+	<select class="form-control input-md"  ng-model="rights">
+		<option value="">Nothing</option>
+		<option value="2">User</option>
+		<option value="1">SubAdmin</option>
+	</select>
 	</div>
 	<table class="table table-striped">
 		<tr>
@@ -23,8 +23,8 @@
 			<td>Type</td>
 			<td>Email</td>
 			<td>Actions</td>
-		</tr>|filter:name|filter:email
-		<tr data-ng-repeat="user in users|filter:rights">
+		</tr>
+		<tr data-ng-repeat="user in users|filter:{'rights':rights}|filter:{'name':name}|filter:{'email':email}">
 			<td>{{$index+1+range}}</td>
 			<td>{{user.name}}</td>
 			<td>{{user.rights===1?"Sub Admin":"Normal User"}}</td>

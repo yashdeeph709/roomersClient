@@ -29,10 +29,17 @@
 			refresh();
 			console.log("previous called")
 		}
-
+///"+$scope.range+"/10"
 		function refresh(){
 			console.log("refresh called and request fired!");
-			$http.get(SERVER_ADDRESS+"user/"+$scope.range+"/10").success(function(data){
+			$http.get(SERVER_ADDRESS+"user").success(function(data){
+				for(var i=0;i<data.length;i++){
+					if(data[i].name=="Shruti"){
+						if (i > -1) {
+ 						   data.splice(i, 1);
+						}
+					}
+				}
 				$scope.users=data;
 			}).error(function(data){
 				console.log(data);

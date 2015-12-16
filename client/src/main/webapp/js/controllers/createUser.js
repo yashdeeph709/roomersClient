@@ -20,11 +20,12 @@
 					toaster.pop('error', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');
 				});
 			}
-			$scope.name="";
+			$state.go("profileAdmin.displayUsers")
+/*			$scope.name="";
 			$scope.email="";
 			$scope.password="";
 			$scope.confirmPassword="";
-		}
+*/		}
 		$scope.cancel=function()
 		{
 			toaster.pop('warning', "Message", '<h5>User Creation Cancelled!</h5>', 1000, 'trustedHtml');
