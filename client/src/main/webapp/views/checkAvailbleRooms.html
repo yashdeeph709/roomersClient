@@ -1,116 +1,103 @@
 <div data-ng-controller="checkAvailableCtrl">
-<div class="row">
-  <div data-ng-include="'views/filters.html'"></div>
-</div>
-<div class="row">
-<div class="col-md-12">
-<div class="panel panel-info">
-<div class="panel-heading">Availability for the Week</div>
-<div class="panel-body">
-
-
-	<div class="col-xs-12">
-    <div class="btn-group btn-group-justified" role="
-      group" aria-label="...">
-      
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding nocurs">
-          <span class="day">{{date1}}</span>
-          <div class="status">Monday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding nocurs">
-          <span class="day">{{date2}}</span>
-          <div class="status">Tuesday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding nocurs">
-          <span class="day">{{date3}}</span>
-          <div class="status">Wednesday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding nocurs">
-          <span class="day">{{date4}}</span>
-          <div class="status">Thursday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding nocurs">
-          <span class="day">{{date5}}</span>
-          <div class="status">Friday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding">
-          <span class="day">{{date6}}</span>
-          <div class="status">Saturday</div>
-        </div>
-      </div>
-      <div class="btn-group day" role="group">
-        <div class="btn btn-default nopadding">
-          <span class="day">{{date7}}</span>
-          <div class="status">Sunday</div>
+  <div class="row">
+    <div data-ng-include="'views/filters.html'"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">Availability for the Week</div>
+        <div class="panel-body">
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified" role="
+              group" aria-label="...">
+              
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{date1}}</span>
+                  <div class="status">Monday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{date2}}</span>
+                  <div class="status">Tuesday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{date3}}</span>
+                  <div class="status">Wednesday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{date4}}</span>
+                  <div class="status">Thursday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{date5}}</span>
+                  <div class="status">Friday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding">
+                  <span style="font-size:12px;" class="day">{{date6}}</span>
+                  <div class="status">Saturday</div>
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding">
+                  <span style="font-size:12px;" class="day">{{date7}}</span>
+                  <div class="status">Sunday</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="btn-group btn-group-justified"aria-label="..."  data-ng-repeat="(key, value) in bookings">
+              
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{value[0].status||'AVAILABLE'}}</span>
+                                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{value[1].status||'AVAILABLE'}}</span>
+                                 </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{value[2].status||'AVAILABLE'}}</span>
+                  
+                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{value[3].status||'AVAILABLE'}}</span>
+                                  </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding nocurs">
+                  <span style="font-size:12px;" class="day">{{value[4].status||'AVAILABLE'}}</span>
+                                </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding">
+                  <span style="font-size:12px;" class="day">{{value[5].status||'AVAILABLE'}}</span>
+                                  </div>
+              </div>
+              <div class="btn-group day" role="group">
+                <div class="btn btn-default nopadding">
+                  <span style="font-size:12px;" class="day">{{value[6].status||'AVAILABLE'}}</span>
+                                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-    <div class="col-xs-12">
-      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-      <div data-ng-repeat="(key, value) in bookings">
-      	 
-        <div class="btn-group day" role="group">
-        
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[0].status}}</span>
-          </div>
-        
-        <div class="btn-group day" role="group">
-          <div style="width:109px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[1].status}}</span>
-            
-          </div>
-        </div>
-        <div class="btn-group day" role="group">
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[2].status}}</span>
-           
-          </div>
-        </div>
-        <div class="btn-group day" role="group">
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[3].status}}</span>
-            
-          </div>
-        </div>
-        <div class="btn-group day" role="group">
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[4].status}}</span>
-            
-          </div>
-        </div>
-        <div class="btn-group day" role="group">
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[5].status}}</span>
-            
-          </div>
-        </div>
-        <div class="btn-group day" role="group">
-          <div style="width:110px;height:35px" class="btn btn-default nopadding nocurs">
-            <span>{{value[6].status}}</span>
-          </div>
-        </div>
-        	
-        </div>
-      </div>
     </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+    </div>
