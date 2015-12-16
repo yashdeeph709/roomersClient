@@ -2,8 +2,23 @@
 	var app=angular.module("UserModule");
 	
 	app.controller('displayUserCtrl', ['$scope','$http','SERVER_ADDRESS','toaster','$rootScope', function($scope,$http,SERVER_ADDRESS,toaster,$rootScope){
-		$scope.range=parseInt(0);
-		refresh();
+	 
+	 $scope.curPage = 0;
+	 $scope.pageSize = 5;
+	 $scope.numberOfPages=0;
+	 $http.get(SERVER_ADDRESS+'/user')
+	 .success(function(data){
+	 	$scope.numberOfPages=data.length;
+	 });
+	 $scope.previous=function(){
+	 	$scope.curPage=$scope.curPage-1;
+	 	refresh();
+	 }
+	 $scope.next=function(){
+		 $scope.curPage=$scope.curPage+1;	
+		 refresh();
+	 }
+	 	refresh();
 		$scope.confirm=function(id){
 			toaster.pop("warning","Message","views/toast.html",2000000000,'template');
 			$rootScope.$on('ok', function (event, data) {
@@ -19,20 +34,27 @@
 				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 2000, 'trustedHtml');
 			});;
 		}
-		$scope.next=function(){
-			$scope.range+=parseInt(2);
-			refresh();
-			console.log("next called")
+		$scope.makeAdmin=function(id){
+			$http.put(SERVER_ADDRESS+"rights/"+id).success(function(data){
+				toaster.pop('warning', "Message", '<h5>User is Sub Admin Now Successfully!</h5>', 000, 'trustedHtml');
+				refresh();
+			}).error(function(data){
+				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 000, 'trustedHtml');
+			});;
+
 		}
-		$scope.previous=function(){
-			$scope.range-=parseInt(2);
-			refresh();
-			console.log("previous called")
+		$scope.deleteAdmin=function(id){
+			$http.delete(SERVER_ADDRESS+"rights/"+id).success(function(data){
+				toaster.pop('warning', "Message", '<h5>Sub Admin is User Now Successfully!</h5>', 2000, 'trustedHtml');
+				refresh();
+			}).error(function(data){
+				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 000, 'trustedHtml');
+			});;
+
 		}
-///"+$scope.range+"/10"
 		function refresh(){
-			console.log("refresh called and request fired!");
-			$http.get(SERVER_ADDRESS+"user").success(function(data){
+//			console.log("refresh called and request fired!");
+			$http.get(SERVER_ADDRESS+"user/"+$scope.curPage*$scope.pageSize+"/"+$scope.pageSize).success(function(data){
 				for(var i=0;i<data.length;i++){
 					if(data[i].name=="Shruti"){
 						if (i > -1) {
@@ -42,8 +64,10 @@
 				}
 				$scope.users=data;
 			}).error(function(data){
+				toaster.pop('warning','Message','<h5> Server Error!</h5',2000);
 				console.log(data);
 			});
 		}
+
 	}]);
 })();

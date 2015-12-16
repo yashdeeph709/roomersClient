@@ -2,14 +2,31 @@
 	var app=angular.module("RoomModule")
 	
 	app.controller('viewRoomCtrl',['$scope','$http','SERVER_ADDRESS','$state','toaster','$rootScope',function($scope,$http,SERVER_ADDRESS,$state,toaster,$rootScope){
-		$scope.range=parseInt(0);
-		refresh();
+		
+	 $scope.curPage = 0;
+	 $scope.pageSize = 5;
+	 $scope.numberOfPages=0;
+	 $http.get(SERVER_ADDRESS+'/room')
+	 .success(function(data){
+	 	console.log(data.length);
+	 	$scope.numberOfPages=data.length;
+	 });
+	 $scope.previous=function(){
+	 	$scope.curPage=$scope.curPage-1;
+	 	refresh();
+	 }
+	 $scope.next=function(){
+		 $scope.curPage=$scope.curPage+1;	
+		 refresh();
+	 }
+	refresh();
 		
 		$scope.tables=[];
 		$scope.machines=[];
 		$scope.screens=[];
 		$scope.capacities=[];
 		$scope.projectors=[];
+
 		$scope.filter={
 			roomCapacity:0,
 			roomTables:0,
@@ -35,16 +52,11 @@
 				$scope.deleteRoom(id);
 			});
 		}
-		$scope.next=function(){
-			$scope.range+=parseInt(2);
-			refresh();
-			console.log("next called")
-		}
-		$scope.previous=function(){
-			$scope.range-=parseInt(2);
-			refresh();
-			console.log("previous called")
-		}
+
+
+
+
+
 		$scope.greaterThanCapacity = function(current,b,values){
 			return current.roomCapacity>=$scope.filter.roomCapacity?true:false;
 		}	
@@ -60,23 +72,47 @@
 		$scope.greaterThanScreens = function(current,b,values){
 			return current.roomScreens>=$scope.filter.roomScreens?true:false;
 		}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 		$scope.deleteRoom=function(name){
 			$http.delete(SERVER_ADDRESS+"room/"+name).success(function(data){
 				toaster.pop('warning', "Message", '<h5> Room Deleted Successfully!</h5>', 3000, 'trustedHtml');
 			}).success(function(){
 				refresh();
 			}).error(function(data){
-				//toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});;
 		}
+		
+		
+
 		function refresh(){
-			$http.get(SERVER_ADDRESS+"room/"+$scope.range+"/10").success(function(data){
+			$http.get(SERVER_ADDRESS+"room/"+$scope.curPage*$scope.pageSize+"/"+$scope.pageSize).success(function(data){
+				console.log("refresh called")
 				$scope.rooms=data;
 			}).error(function(data){
-				console.log("refresh called");
-				$scope.rooms=data;
+				console.log("error refresh called");
 				//toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});;
 		}
+
+
+
+
+
+
 	}]);	
 })();

@@ -48,7 +48,10 @@
 			})
 			$state.go("profileAdmin.viewRoom")
 	    };
-	    
+	$scope.cancel=function(){
+		toaster.pop('warning','Message','<h5>Room Updation cancelled</h5>',2000,'trustedHtml');
+		$state.go("profileAdmin.viewRoom")
+	}	    
 	    
 /*	    $scope.show=function(){
 	    	$http.get(SERVER_ADDRESS+"availRoomName/"+$scope.roomName)

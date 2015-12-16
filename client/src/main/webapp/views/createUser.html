@@ -7,9 +7,10 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Name:</label>  
   <div class="col-md-4">
-  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" ng-change="checkAvailability()" required>
+  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" ng-change="checkAvailability()" ng-pattern="/^[a-zA-Z]+$/" required>
   <span style="color:red" data-ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
   <span data-ng-show="RegistrationForm.name.$error.required">Username is required.</span>
+  <span data-ng-show="RegistrationForm.name.$error.pattern">cannot be number.</span>
    </span> 
   </div>
 </div>
@@ -18,10 +19,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Email Id</label>  
   <div class="col-md-4">
-  <input name="email" data-ng-model="email" type="email" placeholder="abc@example.com" class="form-control input-md" required>
+  <input name="email" data-ng-model="email" type="email" ng-pattern="^(?=[A-Z0-9._%+-]{6,254}$)[A-Z0-9._%+-]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,8}[A-Z]{2,63}$" placeholder="abc@example.com" class="form-control input-md" required>
   <span style="color:red" data-ng-show="RegistrationForm.email.$dirty && RegistrationForm.email.$invalid">
   <span data-ng-show="RegistrationForm.email.$error.required">Email is required.</span>
     <span data-ng-show="RegistrationForm.email.$error.email">Invalid email address.</span>
+    <span data-ng-show="RegistrationForm.email.$error.pattern">not valid email address.</span>
   </span>
   </div>
 </div>

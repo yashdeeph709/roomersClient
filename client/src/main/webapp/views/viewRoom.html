@@ -28,7 +28,6 @@
 
 	<table class="table table-striped">
 		<tr>
-			<td>S.No.</td>
 			<td>Name</td>
 			<td>City</td>
 			<td>Capacity</td>
@@ -41,7 +40,6 @@
 		</tr>
 		<!-- Todo:filter is filtering data on that value only not anyother value -->
 		<tr data-ng-repeat="room in rooms|filter:greaterThanCapacity|filter:greaterThanMachines|filter:greaterThanTables|filter:greaterThanProjectors">
-			<td>{{$index+1+range}}</td>
 			<td>{{room.roomName}}</td>
 			<td>{{room.roomCity}}</td>
 			<td>{{room.roomCapacity}}</td>
@@ -59,12 +57,11 @@
 		</tr>
 	</table>
 
-	<div class="col-md-offset-5">
-		<div class="btn-group">
-          <a class="btn btn-default" ng-click="previous()" ng-show="range!=0"><i class="fa fa-arrow-left"></i></a>
-   		  <a class="btn btn-default">{{range}}</a>
-          <a class="btn btn-default" ng-click="next()"><i class="fa fa-arrow-right"></i></a>
-        </div>
+	<div class="col-md-offset-4">
+		<button type="button" class="btn btn-primary" ng-disabled="curPage == 0" ng-click="previous()"> &lt; PREV</button>
+ 		<span>Page {{curPage + 1}}</span>
+ 		<button type="button" class="btn btn-primary" ng-disabled="curPage >= numberOfPages/pageSize - 1" ng-click="next();">NEXT &gt;
+ 		</button>
 	</div>
 </div>
 </div>
