@@ -3,7 +3,7 @@
 
 	app.controller('checkAvailableCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
 		
-	$http.get(SERVER_ADDRESS+"rooms").success(function(data){
+	$http.get(SERVER_ADDRESS+"room").success(function(data){
 				$scope.rooms=data;
 			}).error(function(data){
 				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 1000, 'trustedHtml');

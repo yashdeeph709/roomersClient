@@ -45,6 +45,12 @@
 			$scope.roomProjector="";
 			$scope.roomInternet="";
 */	      };
+	      $scope.cancel=function(){
+	      		$state.go("profileAdmin.viewRoom");
+	      		console.log("To do room name availability");
+	      		toaster.pop('warning','Message','<h5>Room Creation cancelled</h5>',3000,'trustedHtml')
+	      }
+
 	      $scope.show=function(){
 	      		console.log("To do room name availability");
 	      }
