@@ -1,15 +1,20 @@
-<div class="container" data-ng-controller="bookingRequestCtrl">
-<div class="form-group">
- 
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary" ng-click="requestRoom()">Request for Booking</button>
-  </div>
-</div></p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      <h3>My Bookings</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-   
+<div class="panel panel-info" ng-controller="bookingRequestCtrl">
+<div class="panel-heading">Book Meeting Room</div>
+<div class="panel-body">  <!-- Select Category -->
+
+    <select class="col-md-6 form-control" id="category" data-ng-model="roomid">
+      <option ng-repeat="room in rooms" ng-value="room.id">{{room.roomName}}</option>
+    </select>
+    <select class="col-md-6  form-control" id="category" data-ng-model="category" name="category">
+      <option value="TRAINING">Training</option>
+      <option value="OPEN_PROGRAM">Open Program</option>
+       <option value="BUSINESS_UNIT_PROGRAM">Business Unit Program</option>
+    </select>
+    <input name="name"  data-ng-model="subject" type="text" ng-model-options="{ 'updateOn': 'blur'}"  class="form-control input-md" required>
+ 		 <input id="startDate" data-ng-model="startDate" name="startDate" type="datetime-local" placeholder="Start Date" class="form-control input-md">
+		 <input id="endDate" data-ng-model="endDate" name="endDate"  type="datetime-local" placeholder="End Date" class="form-control input-md">
+     <button name="singlebutton" class="btn btn-primary" data-ng-click="requestRoom()">Request for Booking</button>
+
+  
   </div>
 </div>

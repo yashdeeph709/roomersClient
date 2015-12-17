@@ -6,8 +6,6 @@
 			if(!user){
 				return false;
 			}
-			console.log("isSubAdmin")
-			console.log(user.rights!=1?false:true);
 			return user.rights!=1?false:true;
 		}	
 	});

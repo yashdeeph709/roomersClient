@@ -46,8 +46,16 @@ app.config(function($stateProvider,$urlRouterProvider,$httpProvider){
 		templateUrl:'views/showBookings.html'
 	});
 	$stateProvider.state('profileUser.requestRoom',{
-		url:'/booking:id',
+		url:'/booking/:id',
 		templateUrl:'views/BookingRequest.html'
+	});
+	$stateProvider.state('profileAdmin.HandleRequest',{
+		url:'/booking:id',
+		templateUrl:'views/HandleRequest.html'
+	});
+	$stateProvider.state('profileUser.HandleRequest',{
+		url:'/booking:id',
+		templateUrl:'views/HandleRequest.html'
 	});
 
 

@@ -12,11 +12,15 @@
 				//toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
 			});;
 		}
-		$scope.confirm=function(id){
-			console.log(id);
-		}
 		$scope.reject=function(id){
-			console.log(id);
+			$http.delete(SERVER_ADDRESS+"booking/"+id).success(function(data){
+				toaster.pop('warning', "Message", '<h5> Booking Cancelled successfully!</h5>', 3000, 'trustedHtml');
+				$scope.bookings=data;
+			}).error(function(data){
+				console.log("refresh called");
+				//$scope.rooms=data;
+				//toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 3000, 'trustedHtml');
+			});;
 		}
 	}]);	
 })();

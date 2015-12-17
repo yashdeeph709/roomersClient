@@ -6,9 +6,12 @@
 	 $scope.curPage = 0;
 	 $scope.pageSize = 5;
 	 $scope.numberOfPages=0;
+
+
 	 $http.get(SERVER_ADDRESS+'/user')
 	 .success(function(data){
 	 	$scope.numberOfPages=data.length;
+    	refresh();
 	 });
 	 $scope.previous=function(){
 	 	$scope.curPage=$scope.curPage-1;
@@ -18,7 +21,6 @@
 		 $scope.curPage=$scope.curPage+1;	
 		 refresh();
 	 }
-	 	refresh();
 		$scope.confirm=function(id){
 			toaster.pop("warning","Message","views/toast.html",2000000000,'template');
 			$rootScope.$on('ok', function (event, data) {
@@ -45,10 +47,11 @@
 		}
 		$scope.deleteAdmin=function(id){
 			$http.delete(SERVER_ADDRESS+"rights/"+id).success(function(data){
-				toaster.pop('warning', "Message", '<h5>Sub Admin is User Now Successfully!</h5>', 2000, 'trustedHtml');
+				//type, title, body, timeout, bodyOutputType, clickHandler, toasterId, showCloseButton, toastId, onHideCallback
+				toaster.pop('warning', "Message", '<h5>Sub Admin is User Now Successfully!</h5>', 4000, 'trustedHtml');
 				refresh();
 			}).error(function(data){
-				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 000, 'trustedHtml');
+				toaster.pop('warning', "Message", '<h5> Server Error!</h5>', 4000, 'trustedHtml');
 			});;
 
 		}

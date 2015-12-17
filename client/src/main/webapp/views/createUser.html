@@ -7,7 +7,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Name:</label>  
   <div class="col-md-4">
-  <input name="name"  data-ng-model="name" type="text"  class="form-control input-md" ng-change="checkAvailability()" ng-pattern="/^[a-zA-Z]+$/" required>
+  <input name="name"  data-ng-model="name" type="text" ng-model-options="{ 'updateOn': 'blur'}"  class="form-control input-md" ng-change="checkAvailability()" ng-pattern="/^[a-zA-Z]+$/" required>
   <span style="color:red" data-ng-show="RegistrationForm.name.$dirty && RegistrationForm.name.$invalid">
   <span data-ng-show="RegistrationForm.name.$error.required">Username is required.</span>
   <span data-ng-show="RegistrationForm.name.$error.pattern">cannot be number.</span>
@@ -19,7 +19,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Email Id</label>  
   <div class="col-md-4">
-  <input name="email" data-ng-model="email" type="email" ng-pattern="^(?=[A-Z0-9._%+-]{6,254}$)[A-Z0-9._%+-]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,8}[A-Z]{2,63}$" placeholder="abc@example.com" class="form-control input-md" required>
+  <input name="email" data-ng-model="email" type="email" ng-model-options="{ 'updateOn': 'blur'}" placeholder="abc@example.com" class="form-control input-md" required>
   <span style="color:red" data-ng-show="RegistrationForm.email.$dirty && RegistrationForm.email.$invalid">
   <span data-ng-show="RegistrationForm.email.$error.required">Email is required.</span>
     <span data-ng-show="RegistrationForm.email.$error.email">Invalid email address.</span>
@@ -31,7 +31,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Enter Password</label>
   <div class="col-md-4">
-    <input id="password" name="password" data-ng-model="password" type="password" data-ng-minlength="6" class="form-control input-md" 
+    <input id="password" name="password" ng-model-options="{ 'updateOn': 'blur'}" data-ng-model="password" type="password" data-ng-minlength="6" class="form-control input-md" 
     	required pattern=".{2,}">
 	  <span style="color:red" data-ng-show="RegistrationForm.password.$dirty && RegistrationForm.password.$invalid">
 		<span data-ng-show="RegistrationForm.password.$error.uppercaseValidator">Password should contain at least 1 upper case</span><br/>
@@ -46,7 +46,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label">Confirm Password</label>
   <div class="col-md-4">
-    <input id="confirmPassword" name="confirmPassword" data-ng-model="confirmPassword" type="password"  class="form-control input-md" 
+    <input id="confirmPassword" name="confirmPassword" ng-model-options="{ 'updateOn': 'blur'}" data-ng-model="confirmPassword" type="password"  class="form-control input-md" 
      required>
   <span style="color:red" data-ng-show="RegistrationForm.confirmPassword.$dirty && RegistrationForm.confirmPassword.$invalid">
     <span data-ng-show="RegistrationForm.confirmPassword.$error.required">Retype is required.</span><br/>
