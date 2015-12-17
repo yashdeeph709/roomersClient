@@ -1,103 +1,167 @@
 <div data-ng-controller="checkAvailableCtrl">
-  <div class="row">
-    <div data-ng-include="'views/filters.html'"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-info">
-        <div class="panel-heading">Availability for the Week</div>
-        <div class="panel-body">
-          <div class="col-xs-12">
-            <div class="btn-group btn-group-justified" role="
-              group" aria-label="...">
-              
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{date1}}</span>
-                  <div class="status">Monday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{date2}}</span>
-                  <div class="status">Tuesday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{date3}}</span>
-                  <div class="status">Wednesday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{date4}}</span>
-                  <div class="status">Thursday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{date5}}</span>
-                  <div class="status">Friday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding">
-                  <span style="font-size:12px;" class="day">{{date6}}</span>
-                  <div class="status">Saturday</div>
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding">
-                  <span style="font-size:12px;" class="day">{{date7}}</span>
-                  <div class="status">Sunday</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12">
-            <div class="btn-group btn-group-justified"aria-label="..."  data-ng-repeat="(key, value) in bookings">
-              
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{value[0].status||'AVAILABLE'}}</span>
-                                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{value[1].status||'AVAILABLE'}}</span>
-                                 </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{value[2].status||'AVAILABLE'}}</span>
-                  
-                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{value[3].status||'AVAILABLE'}}</span>
-                                  </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding nocurs">
-                  <span style="font-size:12px;" class="day">{{value[4].status||'AVAILABLE'}}</span>
-                                </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding">
-                  <span style="font-size:12px;" class="day">{{value[5].status||'AVAILABLE'}}</span>
-                                  </div>
-              </div>
-              <div class="btn-group day" role="group">
-                <div class="btn btn-default nopadding">
-                  <span style="font-size:12px;" class="day">{{value[6].status||'AVAILABLE'}}</span>
-                                </div>
-              </div>
-            </div>
-          </div>
+<div class="row">
+       <div class="form-group">
+          Select Room:
+          <select ng-model="roomName" ng-change="refresh()">
+            <option ng-repeat="room in rooms" ng-value="room.roomName">{{room.roomName}}</option>
+          </select>
+       </div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-info">
+<div class="panel-heading">Availability for the Week</div>
+<div class="panel-body">
+
+
+	<div class="col-xs-12">
+    <div class="btn-group btn-group-justified" role="
+      group" aria-label="...">
+      
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding nocurs">
+          <span class="day">{{date1}}</span>
+          <div class="status">Monday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding nocurs">
+          <span class="day">{{date2}}</span>
+          <div class="status">Tuesday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding nocurs">
+          <span class="day">{{date3}}</span>
+          <div class="status">Wednesday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding nocurs">
+          <span class="day">{{date4}}</span>
+          <div class="status">Thursday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding nocurs">
+          <span class="day">{{date5}}</span>
+          <div class="status">Friday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding">
+          <span class="day">{{date6}}</span>
+          <div class="status">Saturday</div>
+        </div>
+      </div>
+      <div class="btn-group day" role="group">
+        <div class="btn btn-default nopadding">
+          <span class="day">{{date7}}</span>
+          <div class="status">Sunday</div>
         </div>
       </div>
     </div>
+  </div>
+
+
+    <div class="col-xs-12">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+      
+      <div data-ng-repeat="(key, value) in bookings1" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings2" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].subject || FREEEEEEE}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>         
+          </div>
+         </div>
+         <p></p>
+       </div>
+      
+      <div data-ng-repeat="(key, value) in bookings3" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+      </div>
+      
+      <div data-ng-repeat="(key, value) in bookings4" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings5" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings6" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings7" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings8" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+       <div data-ng-repeat="(key, value) in bookings9" style="float:left">
+        <div class="btn-group day" role="group">
+          <div style="width:108px;height:55px" class="btn btn-default nopadding nocurs">
+            <span class="day">{{value[0].status}}</span>
+            <div>{{value[0].startDate | utc | date:'HH:mm'}}</div>
+          </div>
+         </div>
+         <p></p>
+       </div>
+       
+
+      </div>
     </div>
-    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
