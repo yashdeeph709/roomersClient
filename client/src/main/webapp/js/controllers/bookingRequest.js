@@ -14,7 +14,6 @@
 	 					url: SERVER_ADDRESS+'booking/'+$scope.roomid,
 	 					data:{
 	 							  "startDate": $scope.startDate,
-	 							  "endDate": $scope.endDate,
 	 							  "status": "REQUESTED",
 	 							  "requestee":user.id,
 	 							  "subject":  $scope.subject,
