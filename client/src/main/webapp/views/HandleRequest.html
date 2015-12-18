@@ -15,6 +15,7 @@
 		<tr>
 			<td>Room Name</td>
 			<td>Status</td>
+			<td>Subject</td>
 			<td>Date</td>
 			<td>Time</td>
 			<td>Actions</td>
@@ -23,6 +24,7 @@
 		<tr data-ng-repeat="booking in bookings|filter:filter.status">
 			<td>{{booking.room.roomName}}</td>
 			<td>{{booking.status}}</td>
+			<td>{{booking.subject}}</td>
 			<td>{{booking.startDate | date:dd:MM:yyyy}}</td>
 			<td>{{booking.startDate | date:'h:mma'}}</td>
 			<td>
