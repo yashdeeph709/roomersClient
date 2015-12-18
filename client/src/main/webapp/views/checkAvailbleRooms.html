@@ -1,19 +1,12 @@
 <div data-ng-controller="checkAvailableCtrl">
 <div class="row">
-       <div class="form-group">
-          Select Room:
-          <select ng-model="roomName" ng-change="refresh()">
-            <option ng-repeat="room in rooms" ng-value="room.roomName">{{room.roomName}}</option>
-          </select>
-       </div>
-</div>
-<div class="row">
 <div class="col-md-12">
 <div class="panel panel-info">
-<div class="panel-heading">Availability for the Week</div>
+<div class="panel-heading">Availability for the Week for <select class="form-control" ng-model="roomName" ng-change="refresh()">
+            <option ng-repeat="room in rooms" ng-value="room.roomName">{{room.roomName}}</option>
+          </select>
+</div>
 <div class="panel-body">
-
-
 	<div class="col-xs-12">
     <div class="btn-group btn-group-justified" role="
       group" aria-label="...">

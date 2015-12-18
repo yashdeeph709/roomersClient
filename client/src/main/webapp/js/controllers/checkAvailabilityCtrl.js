@@ -15,7 +15,7 @@
   	});
 
 	app.controller('checkAvailableCtrl',['$scope','$http','SERVER_ADDRESS','$stateParams','toaster',function($scope,$http,SERVER_ADDRESS,$stateParams,toaster) {
-		$scope.roomName="bahar";
+		$scope.roomName="Fariba";
 		console.log("check loaded")
 		$http.get(SERVER_ADDRESS+"/room").success(function(data){
 				$scope.rooms=data;

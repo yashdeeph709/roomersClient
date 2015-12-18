@@ -2,13 +2,13 @@
 <div class="panel-heading">Book Meeting Room</div>
 <div class="panel-body">  <!-- Select Category -->
     <div class="col-md-12">
-    <label>Room Name:</label><br>
-    <select id="category" data-ng-model="roomid">
+    <label class="control-label">Room Name:</label><br>
+    <select id="category" class="col-md-6 form-control" data-ng-model="roomid">
       <option ng-repeat="room in rooms" ng-value="room.id">{{room.roomName}}</option>
     </select>
     </div>
-    <div class="col-md-6">
-    <label>Type of Traning</label><br>
+    <div class="col-md-12">
+    <label  class="control-label">Type of Traning</label><br>
     <select class="col-md-12 form-control" data-ng-model="category" name="category">
       <option value="TRAINING">Training</option>
       <option value="OPEN_PROGRAM">Open Program</option>
@@ -16,14 +16,16 @@
     </select>
     </div>
     <div class="col-md-12">
-    <label>Subject for Training</label>
+    <label  class="control-label">Subject for Training</label>
     <input name="name" class="form-control"  data-ng-model="subject" type="text" ng-model-options="{ 'updateOn': 'blur'}"  class="form-control input-md" required>
     </div>
     <div class="col-md-12">
-    <label>Start Date & Time</label>
+    <label  class="control-label">Start Date & Time</label>
      <input data-ng-model="startDate" name="startDate" type="datetime-local" placeholder="Start Date" class="form-control input-md">
     </div>
     <div class="col-md-12">
-     <button name="singlebutton" class="btn btn-primary" data-ng-click="requestRoom()">Request for Booking</button>
-  </div>
+     <button class="btn btn-primary" data-ng-click="requestRoom()">Request for Booking</button>
+     <button class="btn btn-primary" ui-sref="profileUser.showBookings()" data-ng-click="cancel()">Cancel Booking</button>
+    </div>
+</div>
 </div>
