@@ -18,12 +18,12 @@
 		</div>
 		<table class="table table-striped">
 			<tr>
-				<td>Name</td>
-				<td>Type</td>
-				<td>Email</td>
+				<td>Name <a ng-click="orderByField='name'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Type<a ng-click="orderByField='rights'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Email<a ng-click="orderByField='email'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
 				<td>Actions</td>
 			</tr>
-			<tr data-ng-repeat="user in users|filter:{'rights':rights}|filter:{'name':name}|filter:{'email':email}">
+			<tr data-ng-repeat="user in users |orderBy:orderByField:reverseSort|filter:{'rights':rights}|filter:{'name':name}|filter:{'email':email}">
 				<td>{{user.name}}</td>
 				<td>{{user.rights===1?"Sub Admin":"Normal User"}}</td>
 				<td>{{user.email}}</td>

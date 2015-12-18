@@ -28,6 +28,14 @@
 				toaster.pop('warning','Message','Room not available',3000,'trustedHtml');
 			})
 	    };
+	    $scope.checkDate=function(){
+	    	var date=new Date();
+	    	if($scope.startDate<date){
+				$scope.valid=false;
+	    	}else{
+	    		$scope.valid=true;
+	    	}
+	    }
     
 	}]);
 

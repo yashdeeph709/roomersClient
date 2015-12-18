@@ -15,10 +15,8 @@
 		<tr>
 			<td>Room Name</td>
 			<td>Status</td>
-			<td>StartDate</td>
-			<td>EndDate</td>
-			<td>startTime</td>
-			<td>endTime</td>
+			<td>Date</td>
+			<td>Time</td>
 			<td>Actions</td>
 		</tr>
 		<!-- Todo:filter is filtering data on that value only not anyother value -->
@@ -26,9 +24,7 @@
 			<td>{{booking.room.roomName}}</td>
 			<td>{{booking.status}}</td>
 			<td>{{booking.startDate | date:dd:MM:yyyy}}</td>
-			<td>{{booking.endDate | date:dd:MM:yyyy}}</td>
 			<td>{{booking.startDate | date:'h:mma'}}</td>
-			<td>{{booking.endDate | date:'h:mma'}}</td>
 			<td>
 			 <button class="btn btn-info" title="Update {{room.roomName}}" ng-if="booking.status!='BOOKED' && booking.status!='CANCELLED'" data-ng-click="accept(booking)">
 			 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>

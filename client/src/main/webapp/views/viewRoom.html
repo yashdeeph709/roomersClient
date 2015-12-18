@@ -1,67 +1,65 @@
 <div class="panel panel-info" data-ng-controller="viewRoomCtrl">
 	<div class="panel-heading">
-	View Rooms
+		View Rooms
 	</div>
 	<div class="panel-body">
-	<div class="form-group">
-		<label>Capacity</label>
-		<select class="input-sm" ng-model="filter.roomCapacity" placeholder="Capacity">
-			<option value="">Nothing</option>
-			<option ng-repeat="capacity in capacities">{{capacity}}</option>
-		</select>
-		<label>Machines</label>
-		<select class="input-sm" ng-model="filter.roomMachines">
-			<option value="">Nothing</option>
-			<option ng-repeat="machine in machines">{{machine}}</option>
-		</select>
-		<label>Tables</label>
-		<select class="input-sm" ng-model="filter.roomTables">
-			<option value="">Nothing</option>
-			<option ng-repeat="table in tables">{{table}}</option>
-		</select>
-		<label>Projectors</label>
-		<select class="input-sm" ng-model="filter.roomProjector">
-			<option value="">Nothing</option>
-			<option ng-repeat="projector in projectors">{{projector}}</option>
-		</select>
+		<div class="form-group">
+			<label>Capacity</label>
+			<select class="input-sm" ng-model="filter.roomCapacity" placeholder="Capacity">
+				<option value="">Nothing</option>
+				<option ng-repeat="capacity in capacities">{{capacity}}</option>
+			</select>
+			<label>Machines</label>
+			<select class="input-sm" ng-model="filter.roomMachines">
+				<option value="">Nothing</option>
+				<option ng-repeat="machine in machines">{{machine}}</option>
+			</select>
+			<label>Tables</label>
+			<select class="input-sm" ng-model="filter.roomTables">
+				<option value="">Nothing</option>
+				<option ng-repeat="table in tables">{{table}}</option>
+			</select>
+			<label>Projectors</label>
+			<select class="input-sm" ng-model="filter.roomProjector">
+				<option value="">Nothing</option>
+				<option ng-repeat="projector in projectors">{{projector}}</option>
+			</select>
+		</div>
+		<table class="table table-striped">
+			<tr>
+				<td>Name<a ng-click="orderByField='roomName'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>City<a ng-click="orderByField='roomCity'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Capacity<a ng-click="orderByField='roomCapacity'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Machines<a ng-click="orderByField='roomMachines'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Tables<a ng-click="orderByField='roomTables'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Projector<a ng-click="orderByField='roomProjector'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Ethernet<a ng-click="orderByField='roomInternet'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Screen<a ng-click="orderByField='roomScreen'; reverseSort = !reverseSort"><span class="glyphicon glyphicon-chevron-up"></span></a></td>
+				<td>Actions</td>
+			</tr>
+			<!-- Todo:filter is filtering data on that value only not anyother value -->
+			<tr data-ng-repeat="room in rooms|filter:greaterThanCapacity|filter:greaterThanMachines|filter:greaterThanTables|filter:greaterThanProjectors|orderBy:orderByField:reverseSort">
+				<td>{{room.roomName}}</td>
+				<td>{{room.roomCity}}</td>
+				<td>{{room.roomCapacity}}</td>
+				<td>{{room.roomMachines}}</td>
+				<td>{{room.roomTables}}</td>
+				<td>{{room.roomProjector}}</td>
+				<td>{{room.roomInternet}}</td>
+				<td>{{room.roomScreen}}</td>
+				<td>
+					<button class="btn btn-info" title="Delete {{room.roomName}}" data-ng-click="confirm(room.id)" accesskey="d">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+					<button class="btn btn-info" title="Update {{room.roomName}}" data-ng-click="editRoom(room.id)" accesskey="d">
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+				</td>
+			</tr>
+		</table>
+		<div class="col-md-offset-4">
+			<button type="button" class="btn btn-primary" ng-disabled="curPage == 0" ng-click="previous()"> &lt; PREV</button>
+			<span>Page {{curPage + 1}}</span>
+			<button type="button" class="btn btn-primary" ng-disabled="curPage >= numberOfPages/pageSize - 1" ng-click="next();">NEXT &gt;
+			</button>
+		</div>
 	</div>
-
-	<table class="table table-striped">
-		<tr>
-			<td>Name</td>
-			<td>City</td>
-			<td>Capacity</td>
-			<td>Machines</td>
-			<td>Tables</td>
-			<td>Projector</td>
-			<td>Ethernet</td>
-			<td>Screen</td>
-			<td>Actions</td>
-		</tr>
-		<!-- Todo:filter is filtering data on that value only not anyother value -->
-		<tr data-ng-repeat="room in rooms|filter:greaterThanCapacity|filter:greaterThanMachines|filter:greaterThanTables|filter:greaterThanProjectors">
-			<td>{{room.roomName}}</td>
-			<td>{{room.roomCity}}</td>
-			<td>{{room.roomCapacity}}</td>
-			<td>{{room.roomMachines}}</td>
-			<td>{{room.roomTables}}</td>
-			<td>{{room.roomProjector}}</td>
-			<td>{{room.roomInternet}}</td>
-			<td>{{room.roomScreen}}</td>
-			<td>
-			<button class="btn btn-info" title="Delete {{room.roomName}}" data-ng-click="confirm(room.id)" accesskey="d">
-			 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-			 <button class="btn btn-info" title="Update {{room.roomName}}" data-ng-click="editRoom(room.id)" accesskey="d">
-			 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
-			</td>
-		</tr>
-	</table>
-
-	<div class="col-md-offset-4">
-		<button type="button" class="btn btn-primary" ng-disabled="curPage == 0" ng-click="previous()"> &lt; PREV</button>
- 		<span>Page {{curPage + 1}}</span>
- 		<button type="button" class="btn btn-primary" ng-disabled="curPage >= numberOfPages/pageSize - 1" ng-click="next();">NEXT &gt;
- 		</button>
-	</div>
-</div>
 </div>
